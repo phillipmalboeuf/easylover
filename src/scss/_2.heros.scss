@@ -1,0 +1,42 @@
+
+
+// #HEROS
+
+.hero {
+	@extend .grid;
+	@extend .grid--middle;
+	@extend .grid--center;
+
+	background-size: cover;
+	background-position: center;
+
+	@extend .padded;
+	@extend .padded--thick;
+	// padding-top: $gutter*5;
+
+	&.hero--small {
+		min-height: 40vh;
+	}
+
+	&.hero--medium {
+		min-height: 60vh;
+	}
+
+	&.hero--large {
+		min-height: 80vh;
+	}
+
+	&.hero--x-large {
+		min-height: 92vh;
+	}
+}
+
+	.hero__inner {
+		text-align: center;
+		max-width: $max_width;
+
+		&.hero__inner--with_button {
+			padding-top: $vertical_rythm*8;
+		}
+	}
+

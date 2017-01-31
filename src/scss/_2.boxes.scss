@@ -1,0 +1,14 @@
+
+
+// #BOXES
+
+.box {
+	color: $dark_background;
+
+	padding: $gutter*3 $gutter;
+	border: 2px solid;
+
+	h1 {
+		font-size: $massive_size;
+	}
+}

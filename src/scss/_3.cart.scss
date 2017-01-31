@@ -1,0 +1,52 @@
+
+
+// #CART
+
+.cart {
+	@extend .overlay;
+	@extend .overlay--full;
+
+	font-family: $alternate_font;
+}
+
+	.cart__container {
+		@extend .overlay__container;
+
+		padding: $gutter*2 $gutter*1.5 $gutter;
+		background: $white;
+	}
+
+	
+		.cart__item {
+			padding: $vertical_rythm 0;
+		}
+
+
+	.cart__back {
+		@extend .overlay__back;
+	}
+
+	.cart__close {
+		@extend .overlay__close;
+	}
+
+	// .cart__bottom {
+	// 	position: fixed;
+	// 	bottom: 0;
+	// 	z-index: 1;
+
+	// 	width: 100%;
+
+	// 	@extend .padded;
+	// 	@extend .padded--tight;
+
+	// 	color: $white;
+	// 	background: $highlight;
+	// }
+
+	.cart__alert {
+		@extend .overlay__alert;
+	}
+
+
+

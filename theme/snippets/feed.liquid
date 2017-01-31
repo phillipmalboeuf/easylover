@@ -1,0 +1,8 @@
+<section class="padded huge_bottom" data-section-id="{{id}}" data-section-type="instagram-feed">
+  {% if title != blank %}
+  <h4 class="text_center big_bottom">{{ title }}<br><a href="https://www.instagram.com/{{ user_name }}" class="a--highlight" target="_blank">@{{ user_name }}</a></h4>
+  {% endif %}
+
+  <div class="grid feed grid--tight_guttered grid--center" data-feed data-feed-user-id="{{ user_id }}" data-feed-access-token="{{ access_token }}" data-feed-limit={{ grid | times: rows }} data-feed-photo-width="{{ 100 | divided_by: grid }}"></div>
+
+</section>

@@ -1,0 +1,55 @@
+
+<footer class="footer padded" data-section-id="{{ section.id }}" data-section-type="footer-section">
+  {% unless template == 'blog' %}
+	{% assign blog = blogs[section.settings.inspiration_blog] %}
+	<div class="grid grid--tight_guttered grid--bottom">
+		{% for article in blog.articles limit:1 %}
+		<div class="col col--1of12 col--tablet_portrait--2of12">
+			<a href="{{blog.url}}"><img src="{{article.image.src|img_url: 'grande'}}" alt=""></a>
+		</div>
+		<div class="col col--1of12 col--tablet_portrait--2of12">
+			<a href="{{blog.url}}"><em>Inpiration lookbook</em></a>
+		</div>
+		{% endfor %}
+	</div>
+  {% endunless %}
+
+  {% unless template == 'product' %}
+  <div class="footer__products hide_on_tablet_landscape">
+    {% for link in linklists[section.settings.footer_products].links %}
+    <a href="{{link.url}}" class="button button--circle">{{link.title}}</a>
+    {% endfor %}
+  </div>
+
+  <div class="footer__shirt hide_on_tablet_landscape">
+    <img src="{{'sweatshirt.svg'|asset_url}}">
+  </div>
+  {% endunless %}
+</footer>
+
+
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+  	{
+      "type": "blog",
+      "id": "inspiration_blog",
+      "label": "Inspiration blog"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_links",
+      "label": "Footer links",
+      "default": "footer"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_products",
+      "label": "Footer product links",
+      "default": "footer"
+    }
+  ]
+}
+{% endschema %}

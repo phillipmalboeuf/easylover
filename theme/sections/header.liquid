@@ -1,0 +1,69 @@
+
+
+<header class="header" data-section-id="{{ section.id }}" data-section-type="header-section" id="header" data-header>
+  {% if section.settings.message %}
+  <div class="alert header__alert">
+    {% if section.settings.message_link != blank %}
+      <a href="{{ section.settings.message_link }}" class="alert__message">
+        {{ section.settings.message_text }}
+      </a>
+    {% else %}
+      <span class="alert__message">{{ section.settings.message_text }}</span>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <nav class="padded padded--thick grid grid--middle" data-navigation>
+    <div class="col col--4of12">
+      {% for link in linklists[section.settings.main_linklist].links %}
+      {% unless link.active %}
+      <a href="{{ link.url }}" class="nav__link">{{link.title}}</a>
+      {% endunless %}
+      {% endfor %}
+    </div>
+
+    <div class="col col--4of12 text_center">
+      <a href="/"><h1 class="highlight uppercase">{{shop.name}}</h1></a>
+    </div>
+
+    <div class="col col--4of12 text_right">
+      <a href="/cart" class="nav__link" data-toggle-cart>
+        Your Cart (<span data-item-count>{{ cart.item_count }}</span>)
+      </a>
+    </div>
+  </nav>
+</header>
+
+
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "main_linklist",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "message",
+      "label": "Show announcement",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "message_text",
+      "label": "Announcement text",
+      "default": "Announce something here"
+    },
+    {
+      "type": "url",
+      "id": "message_link",
+      "label": "Announcement link",
+      "info": "Optional"
+    }
+  ]
+}
+{% endschema %}

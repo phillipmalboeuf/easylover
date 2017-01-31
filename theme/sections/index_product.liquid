@@ -1,0 +1,30 @@
+
+
+
+{% assign id = section.id %}
+{% assign product = all_products[section.settings.product] %}
+
+<section class="padded padded--thick padded--underheader" data-section-id="{{ section.id }}" data-section-type="featured-product">
+  {% include 'collection_product' %}
+</section>
+
+
+{% schema %}
+{
+  "name": "Featured Product",
+  "class": "index-section",
+  "settings": [
+    {
+      "id": "product",
+      "type": "product",
+      "label": "Product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Product",
+      "category": "Products"
+    }
+  ]
+}
+{% endschema %}

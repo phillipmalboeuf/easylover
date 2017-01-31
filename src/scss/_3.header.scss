@@ -1,0 +1,33 @@
+
+
+// #HEADER
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+
+	background-color: transparent;
+	pointer-events: none;
+
+	a {
+		pointer-events: auto;
+	}
+}
+
+	.header__logotype {
+		width: 100%;
+		max-width: (86/$base) * 1rem;
+	}
+
+	.header__alert {
+		position: fixed;
+		left: 0;
+		top: 0;
+
+		width: 100%;
+	}
+
+	

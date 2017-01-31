@@ -1,0 +1,46 @@
+
+{% if settings.social_facebook_link != blank %}
+<a class="col nav__link" href="{{ settings.social_facebook_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Facebook' }}">
+<svg class="icon"><use xlink:href="#icon-facebook"></use></svg>
+</a>
+{% endif %}
+{% if settings.social_twitter_link != blank %}
+<a class="col nav__link" href="{{ settings.social_twitter_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Twitter' }}">
+  <svg class="icon"><use xlink:href="#icon-twitter"></use></svg>
+</a>
+{% endif %}
+{% if settings.social_pinterest_link != blank %}
+<a class="col nav__link" href="{{ settings.social_pinterest_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Pinterest' }}">
+  <svg class="icon"><use xlink:href="#icon-pinterest"></use></svg>
+</a>
+{% endif %}
+{% if settings.social_instagram_link != blank %}
+<a class="col nav__link" href="{{ settings.social_instagram_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Instagram' }}">
+  <svg class="icon"><use xlink:href="#icon-instagram"></use></svg>
+</a>
+{% endif %}
+{% if settings.social_tumblr_link != blank %}
+<a class="col nav__link" href="{{ settings.social_tumblr_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Tumblr' }}">
+  <svg class="icon"><use xlink:href="#icon-tumblr"></use></svg>
+</a>
+{% endif %}
+{% if settings.social_snapchat_link != blank %}
+<a class="col nav__link" href="{{ settings.social_snapchat_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Snapchat' }}">
+  <svg class="icon"><use xlink:href="#icon-snapchat"></use></svg>
+</a>
+{% endif %}
+{% if settings.social_youtube_link != blank %}
+<a class="col nav__link" href="{{ settings.social_youtube_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'YouTube' }}">
+  <svg class="icon"><use xlink:href="#icon-youtube"></use></svg>
+</a>
+{% endif %}
+{% if settings.social_vimeo_link != blank %}
+<a class="col nav__link" href="{{ settings.social_vimeo_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Vimeo' }}">
+  <svg class="icon"><use xlink:href="#icon-vimeo"></use></svg>
+</a>
+{% endif %}
+{% if template contains 'blog' or template contains 'article' %}
+<a class="col nav__link" href="{{ shop.url }}{{ blog.url }}.atom">
+  <svg class="icon"><use xlink:href="#icon-rss"></use></svg>
+</a>
+{% endif %}

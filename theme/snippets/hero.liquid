@@ -1,0 +1,7 @@
+
+<div class="hero hero--{{ hero_size }} {% if dark == 'dark' %}dark_back{% else %}light_back{% endif %}" {% if image != blank %}style="background-image: url({{image | img_url: 'original'}})"{% endif %} data-section-id="{{id}}">
+  <div class="hero__inner {% if button_link %}hero__inner--with_button{% endif %}">
+    <h1 class="{% if text_size == 'large' %}h1--massive{% endif %} {% if button_link %}huge_bottom{% endif %}">{{title}}</h1>
+    {% if button_link %}<a href="{{button_link}}" class="a--with_arrow">{{button_text}} <svg class="icon"><use xlink:href="#icon-right"></use></svg></a>{% endif %}
+  </div>
+</div>

@@ -1,0 +1,145 @@
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign current_variant_colour = current_variant.option1 %}
+{% assign current_variant_size = current_variant.option2 %}
+
+
+<article class="product product--{{current_variant_colour|handleize}} padded padded--underheader" itemscope itemtype="http://schema.org/Product" data-section-id='{{section.id}}' data-section-type='product' data-product-id="{{product.id}}">
+	<div class="product__back">
+		<img src="{{current_variant.image.src|img_url:'original'}}" alt="{{current_variant.image.alt}}">
+	</div>
+
+	<!-- <div class="product__info text_center">
+		
+	</div> -->
+
+	<form class="product__form" data-add-to-cart-form>
+		<fieldset class="product__shirt_fieldset">
+			<!-- <legend></legend> -->
+			<input class="input--transparent" type="text" name="name" value="1.Type name" maxlength="13">
+		</fieldset>
+
+		<fieldset>
+			<legend>2. Select a style</legend>
+			<select name="style">
+				<option value="Street">Street</option>
+				<option value="Classy">Classy</option>
+				<option value="Fun">Fun</option>
+			</select>
+			<small>* Final print files might be adjusted slightly.</small>
+		</fieldset>
+
+		<fieldset>
+			<legend>3. Select a colour &amp; size</legend>
+
+			<label class="label--tiny">Colour</label>
+			{% for variant in product.variants %}
+			{% if current_variant_size == variant.option2 %}
+			<input type="radio" name="colour" {% if variant.option1 == current_variant_colour %}checked{% endif %} value="{{variant.id}}" id="color_{{variant.id}}">
+			<label for="color_{{variant.id}}">{{variant.option1}}</label>
+			{% endif %}
+			{% endfor %}
+
+			<label class="label--tiny">Size</label>
+			<select name="size">
+			{% for variant in product.variants %}
+			{% if current_variant_colour == variant.option1 %}
+			<option {% if variant.option2 == current_variant_size %}selected{% endif %} value="{{variant.id}}" {% unless variant.available %}disabled{% endunless %}>{{variant.option2}}</option>
+			{% endif %}
+			{% endfor %}
+			</select>
+		</fieldset>
+
+		<button class="button--black button--full medium_top" type="submit">Add to cart ({{current_variant.price|divided_by:100}}$)</button>
+	</form>
+</article>
+
+
+
+
+
+<!-- <div class="grid grid--tight_guttered grid--middle grid--center" data-section-id='{{section.id}}' data-section-type='product' data-product-id="{{product.id}}">
+	<div class="col col--1of12 col--tablet_portrait--2of12 col--phone--3of12">
+		<div class="product__thumbnails" data-thumbnails>
+		{% for image in product.images %}
+			{% assign alt_split = image.alt | split: '|' %}
+			{% if alt_split.size == 1 or alt_split[0] == current_variant.option1 %}
+			<a href="{{ image.src | img_url: 'master' }}" class="product__thumbnail" data-thumbnail>
+				<img src="{{ image.src | img_url: 'medium' }}" alt="{% if alt_split.size == 1 %}{{ image.alt | escape }}{% else %}{{ alt_split[1] | escape }}{% endif %}" class="normal_bottom">
+			</a>
+			{% endif %}
+		{% endfor %}
+		</div>
+	</div>
+	<div class="col col--5of12 col--tablet_portrait--4of12 col--phone--9of12">
+		<figure><img src="{{product.featured_image.src|img_url: 'original'}}" alt="{{product.featured_image.alt}}" data-featured-image></a></figure>
+	</div>
+	<div class="col col--1of12 hide_on_tablet_portrait"></div>
+	<div class="col col--4of12 col--tablet_portrait--8of12 col--phone--12of12 text_center">
+		<h1 class="h1--small medium_bottom">{{product.title}}</h1>
+
+
+		<div class="medium_bottom">{% include 'product_price', product: current_variant %}</div>
+
+
+		{% if product.variants.size != 1 %}
+		<div class="grid grid--center medium_bottom">
+			<div class="col">
+			{% for variant in product.variants %}
+				<input type="radio" name="variant" id="variant_{{ variant.id }}" value="{{ variant.id }}" {% if variant.id == current_variant.id %}checked{% endif %}>
+				<label for="variant_{{ variant.id }}">
+					{{variant.option1}}
+				</label>
+			{% endfor %}
+			</div>
+		</div>
+		{% else %}
+		<div class="hide">
+			<input type="radio" name="variant" id="variant_{{ current_variant.id }}" value="{{ current_variant.id }}" checked>
+			<label for="variant_{{ current_variant.id }}">
+				{{current_variant.option1}}
+			</label>
+		</div>
+		{% endif %}
+		
+
+
+		{% if product.description != '' %}
+
+		{% assign description_split = product.description | replace: '<u>', '<span style="text-decoration: underline;">' | replace: '</u>', '</span>' | split: '<span style="text-decoration: underline;">' %}
+        {% assign details_split = description_split[1] | split: '</span>' %}
+
+		<div class="medium_bottom slight">
+		{{ description_split[0] }}
+		</div>
+		{% endif %}
+
+		<div class="medium_bottom">
+			<button data-add-to-cart>{{'collections.general.add_to_cart' | t}}</button>
+		</div>
+
+		
+		{% if product.description != '' %}
+		<div class="product__details">
+		<input type="checkbox" class="checkbox--collapse" checked id="collapse_description"> <label for="collapse_description">{{ details_split[0] }}</label>
+
+        <div class="collapsable">
+        	{% assign list_split = details_split[1] | split: '</li>' %}
+        	<table>
+        	{% for item in list_split %}
+	        	{% assign item_split = item | split: '<li>' %}
+	        	{% assign split = item_split[1] | split: ':' %}
+	        	<tr>
+					<td class="col col--6of12 text_right p--alternate flat_bottom">{{split[0]}}</td>
+					<td class="col col--6of12 text_left p--alternate flat_bottom"><span class="highlight">{{split[1]}}</span></td>
+				</tr>
+        	{% endfor %}
+			</table>
+        	</div>
+        </div>
+        </div>
+		{% endif %}
+
+	</div>
+	
+</div> -->

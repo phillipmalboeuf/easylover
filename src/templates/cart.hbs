@@ -1,0 +1,57 @@
+
+<a href="#" class="cart__back" data-hide></a>
+
+
+
+<form action="/cart" method="post" class="cart__container text_center" id="cart__form" novalidate>
+	<div class="alert cart__alert fades_out fade_out" data-cart-error><div class="padded"><span data-cart-error-text></span> <a href="#" class="a--underline" data-close-error>{{text.alert_close}}</a></div></div>
+
+
+	<a href="#" class="cart__close a--highlight" data-hide>X Close</a>
+
+	{{#if model.item_count}}
+	<h1 class="highlight medium_bottom">Cart</h1>
+
+	{{#each model.items}}
+	<div class="cart__item">
+		<div class="grid grid--guttered grid--middle">
+			<div class="col col--4of12">
+				<a href="{{url}}"><img src="{{image}}"></a>
+			</div>
+
+			<div class="col col--8of12">
+				<h5 class="small_bottom"><a href="{{url}}">{{{product_title}}} {{#variant_title}}({{this}}){{/variant_title}}</a></h5>
+				{{#each properties}}
+				<div><small>{{@key}}: {{this}}</small></div>
+				{{/each}}
+				<h6 class="medium_bottom">{{{money price}}}</h6>
+
+				<p>
+					{{../text.quantity}}
+					&nbsp;&nbsp;
+					<button class="button--transparent" data-decrement="{{key}}" data-current-quantity="{{quantity}}">-</button>
+					<span class="highlight">{{quantity}}</span>
+					<button class="button--transparent" data-increment="{{key}}" data-current-quantity="{{quantity}}">+</button>
+
+					<br>
+
+					<a href="#" data-remove-from-cart="{{key}}" class="a--highlight">{{../text.remove}}</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	{{/each}}
+
+	<div class="padded">
+		<h5 class="medium_bottom">{{text.subtotal}} <span class="highlight">{{{money model.total_price}}}</span></h5>
+
+		<button type="submit" name="checkout" class="button--big" {{#unless model.item_count}}disabled{{/unless}}>{{text.checkout}}</button>
+	</div>
+
+	{{else}}
+	<div class="padded padded--thick text_center">
+		<h1>{{text.empty}}</h1>
+	</div>
+	{{/if}}
+</form>
+

@@ -1,0 +1,28 @@
+
+
+// #NAV
+
+nav {
+
+}
+
+	.nav__link {
+		font-family: $alternate_font;
+		font-weight: bold;
+
+		& + & {
+			margin-left: $vertical_rythm;
+		}
+
+		&:hover,
+		&:focus {
+			border-bottom: 2px solid;
+		}
+
+		&.nav__link--line {
+			display: block;
+			line-height: (24/$base);
+		}
+	}
+
+

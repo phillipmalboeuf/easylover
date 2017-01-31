@@ -1,0 +1,38 @@
+
+<section class="">
+	<div class="slider padded padded--underheader" data-slider>
+		{% assign size = blog.articles|size %}
+		<div class="slider__container" style="width: {{size | times: 100 | divided_by: 2}}%;" data-slider-container>
+		{% for article in blog.articles %}
+			<div class="slide" data-slide={{forloop.index0}} style="width: {{100 | divided_by: size}}%;">
+				<div data-slide-content>
+					<img src="{{article.image.src|img_url: 'original'}}" alt="{{article.image.alt}}" title="{{article.title}}">
+				</div>
+			</div>
+		{% endfor %}
+		</div>
+
+		<button class="slider__button" data-previous-slide-button>
+			<svg class="icon icon--massive"><use xlink:href="#icon-left"></use></svg>
+		</button>
+
+		<button class="slider__button slider__button--right" data-next-slide-button>
+			<svg class="icon icon--massive"><use xlink:href="#icon-right"></use></svg>
+		</button>
+	</div>
+</section>
+
+<!-- <section class="padded {% if forloop.first %}padded--underheader{% endif %} grid grid--spaced_around grid--middle {% cycle blog.handle: '', 'grid--reverse dark_back' %}">
+	<div class="col col--6of12">
+		<figure><a href="{{article.url}}"><img src="{{article.image.src|img_url: 'original'}}" alt="{{article.url}}"></a></figure>
+	</div>
+	<div class="col col--4of12 text_center">
+		<h2 class="highlight"><a href="{{article.url}}">{{article.title}}</a></h2>
+		<p>
+			{% for tag in article.tags %}<a href="{{blog.url}}/tagged/{{tag|handleize}}">{{tag}}</a>{% unless forloop.last %} / {% endunless %}{% endfor %}<br>
+			{{article.published_at|date}}
+		</p>
+		<p>{{article.excerpt}}</p>
+		<a href="{{article.url}}" class="button">{{'general.navigation.view_more'|t}}</a>
+	</div>
+</section> -->

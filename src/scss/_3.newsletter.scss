@@ -1,0 +1,35 @@
+
+
+// #LOGIN
+
+.newsletter {
+	@extend .overlay;
+	@extend .overlay--bottom;
+
+	@include transition(opacity $fast, visibility 0s linear $fast, transform $fast, -webkit-transform $fast);
+	@include translate(0, 100%);
+
+	&.newsletter--show {
+		opacity: 1;
+		visibility: visible;
+
+		@include translate(0, 0);
+
+		@include transition(opacity $fast, visibility 0s, transform $fast, -webkit-transform $fast);
+	}
+}
+
+
+	.newsletter__container {
+		@extend .overlay__container;
+		@extend .padded;
+		@extend .padded--thick;
+
+		max-width: 100%;
+	}
+
+		.newsletter__close {
+			@extend .overlay__close;
+
+			padding: $gutter $gutter*2;
+		}

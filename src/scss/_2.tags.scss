@@ -1,0 +1,14 @@
+
+
+// #TAGS
+
+.tag {
+	font-family: $alternate_font;
+	font-size: $small_size;
+	line-height: 1;
+
+	display: inline-block;
+	padding: $vertical_rythm/4 $vertical_rythm/4 $vertical_rythm/8;
+	margin: 0 $vertical_rythm/4 $vertical_rythm/2;
+	background-color: $grey--light;
+}

@@ -1,0 +1,10 @@
+
+{{#each feed}}
+{{#if link}}
+<div class="col" style="width: {{../width}}">
+	<a href="{{link}}" target="_blank" class="">
+		<img src="{{images.low_resolution.url}}" alt="{{caption.text}}">
+	</a>
+</div>
+{{/if}}
+{{/each}}

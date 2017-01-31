@@ -1,0 +1,84 @@
+
+
+<section class="newsletter" data-section-id="{{ section.id }}" data-section-type="newsletter-section" id="newsletter" data-newsletter-delay={% if section.settings.disabled %}"never"{% else %}{{section.settings.delay}}{% endif %}>
+	<div class="newsletter__container dark_back">
+
+		<a href="#" class="newsletter__close a--highlight" data-hide><svg class="icon"><use xlink:href="#icon-close"></use></svg></a>
+
+		<div class="grid grid--middle grid--spaced_around">
+			<div class="col col--4of12">
+				<div class="medium text_center">{{section.settings.body}}</div>
+			</div>
+			<div class="col col--6of12">
+				<form action="{{ section.settings.mailchimp_link }}" method="post" target="_blank">
+          <div class="grid grid--guttered grid--middle">
+            <div class="col col--8of12">
+               <input type="email" name="EMAIL" required placeholder="{{ 'customer.login.email' | t }}">
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;"><input type="text" name="{{ section.settings.security_code }}" tabindex="-1" value=""></div>
+            </div>
+            <div class="col col--4of12">
+              <button type="submit" class="button--full">{{section.settings.button_text}}</button>
+            </div>
+          </div>
+        </form>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter Popup",
+  "settings": [
+    {
+      "id": "disabled",
+      "type": "checkbox",
+      "label": "Is disabled?",
+      "default": false
+    },
+    {
+      "id": "body",
+      "type": "richtext",
+      "label": "Text",
+      "default": "<p>Sign up to our brilliant newsletter and get <em>10% OFF</em> your first online purchase.</p>"
+    },
+    {
+      "id": "body_fr",
+      "type": "richtext",
+      "label": "Text (FR)",
+      "default": "<p>Sign up to our brilliant newsletter and get <em>10% OFF</em> your first online purchase. (FR)</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Sign up CTA",
+      "default": "Submit"
+    },
+    {
+      "type": "text",
+      "id": "button_text_fr",
+      "label": "Sign up CTA (FR)",
+      "default": "Submit"
+    },
+    {
+      "type": "text",
+      "id": "delay",
+      "label": "Delay (in seconds)",
+      "default": "1"
+    },
+    {
+      "type": "text",
+      "id": "mailchimp_link",
+      "label": "Mailchimp link",
+      "default": "//juneswimwear.us3.list-manage.com/subscribe/post?u=e9a6ab327e08f958dc9b510fc&amp;id=676f44598d"
+    },
+    {
+      "type": "text",
+      "id": "security_code",
+      "label": "Security code",
+      "default": "b_e9a6ab327e08f958dc9b510fc_676f44598d"
+    }
+  ]
+}
+{% endschema %}
