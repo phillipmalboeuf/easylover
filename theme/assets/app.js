@@ -1032,8 +1032,6 @@
       return Product.__super__.constructor.apply(this, arguments);
     }
 
-    Product.prototype.style = "Street";
-
     Product.prototype.events = {
       "click [name='colour']": "change_colour",
       "click [data-thumbnail]": "show_image",
@@ -1047,7 +1045,8 @@
     };
 
     Product.prototype.render = function() {
-      this.$el.find("[name='properties[name]']").focus();
+      this.$el.find("[name='name']").focus();
+      this.style = this.$el.find("[name='style']").val();
       this.$el.addClass("product--" + this.style);
       return this;
     };

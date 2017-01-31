@@ -84,6 +84,7 @@ h1, h2, h3, h4, h5, h6 {
 
 	h6 {
 		font-size: $base_size;
+		line-height: 1.25;
 	}
 
 
@@ -425,6 +426,7 @@ small,
 .small {
 	font-size: $tiny_size;
 	font-family: $alternate_font;
+	line-height: 1.25;
 }
 
 b,
