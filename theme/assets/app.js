@@ -1033,7 +1033,8 @@
     }
 
     Product.prototype.events = {
-      "click [name='colour']": "change_colour",
+      "click [name='shirt']": "change_variant",
+      "click [name='colour']": "change_variant",
       "click [data-thumbnail]": "show_image",
       "submit [data-add-to-cart-form]": "add_to_cart",
       "change [name='style']": "change_style"
@@ -1057,7 +1058,7 @@
       return this.$el.addClass("product--" + this.style);
     };
 
-    Product.prototype.change_colour = function(e) {
+    Product.prototype.change_variant = function(e) {
       var id;
       id = e.currentTarget.value;
       if (id != null) {

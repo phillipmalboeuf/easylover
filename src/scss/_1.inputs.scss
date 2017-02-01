@@ -141,7 +141,7 @@ input[type="radio"] {
 
 	& + label {
 		display: inline-block;
-		margin: 0 $vertical_rythm/2 $vertical_rythm/2 0;
+		margin-right: $vertical_rythm/2;
 	}
 
 	&:active {

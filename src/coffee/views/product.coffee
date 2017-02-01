@@ -2,7 +2,8 @@ class Lover.Views.Product extends Backbone.View
 
 
 	events: 
-		"click [name='colour']": "change_colour"
+		"click [name='shirt']": "change_variant"
+		"click [name='colour']": "change_variant"
 		"click [data-thumbnail]": "show_image"
 		"submit [data-add-to-cart-form]": "add_to_cart"
 		"change [name='style']": "change_style"
@@ -29,19 +30,13 @@ class Lover.Views.Product extends Backbone.View
 		this.$el.addClass "product--"+@style
 
 
-	# change_variant: (e)->
-	# 	id = this.$el.find("[name='variant']:checked").val()
-	# 	if id?
-	# 		Turbolinks.visit window.location.pathname+"?variant="+id
-	# 	else
-	# 		Turbolinks.visit window.location.pathname
-
-	change_colour: (e)->
+	change_variant: (e)->
 		id = e.currentTarget.value
 		if id?
 			Turbolinks.visit window.location.pathname+"?variant="+id
 		else
 			Turbolinks.visit window.location.pathname
+
 
 	show_image: (e)->
 		e.preventDefault()
