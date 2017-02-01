@@ -51,11 +51,11 @@ this["templates"]["cart"] = Handlebars.template({"1":function(container,depth0,h
 },"3":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(data && data.first),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+  return ((stack1 = helpers.unless.call(depth0 != null ? depth0 : {},(data && data.last),{"name":"unless","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
 },"4":function(container,depth0,helpers,partials,data) {
-    return "("
+    return "– "
     + container.escapeExpression(container.lambda(depth0, depth0))
-    + ")";
+    + " ";
 },"6":function(container,depth0,helpers,partials,data) {
     var helper, alias1=container.escapeExpression;
 

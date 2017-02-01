@@ -20,7 +20,7 @@
 			</div>
 
 			<div class="col col--5of12">
-				<h6 class="small_bottom"><a href="{{url}}"><strong>{{{product_title}}} {{#each variant_options}}{{#if @first}}({{this}}){{/if}}{{/each}}</strong></a><br><span class="highlight">{{{money price}}}</span></h6>
+				<h6 class="small_bottom"><a href="{{url}}"><strong>{{{product_title}}} {{#each variant_options}}{{#unless @last}}– {{this}} {{/unless}}{{/each}}</strong></a><br><span class="highlight">{{{money price}}}</span></h6>
 				<p class="small">
 					{{#each properties}}{{@key}}: {{this}}<br>{{/each}}
 					{{#each variant_options}}{{#if @last}}Size: {{this}}{{/if}}{{/each}}
