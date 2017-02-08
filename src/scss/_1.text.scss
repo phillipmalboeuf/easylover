@@ -358,22 +358,8 @@ sub {
 	background-color: $black;
 }
 
-.light_back {
-	color: $body_color;
-	background-color: $light_background;
-
-	h1, h2, h3, h4, h5, h6 {
-		color: $body_color;
-	}
-
-	a {
-		color: $body_color;
-		
-		&:hover,
-		&:focus {
-			color: $highlight;
-		}
-	}
+.white_back {
+	background-color: $white;
 }
 
 .image_back {

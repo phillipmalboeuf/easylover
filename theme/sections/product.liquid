@@ -1,8 +1,14 @@
 
 {% assign current_variant = product.selected_or_first_available_variant %}
+
+{% if product.type == 'Custom' %}
 {% assign current_variant_shirt = current_variant.option1 %}
 {% assign current_variant_colour = current_variant.option2 %}
 {% assign current_variant_size = current_variant.option3 %}
+{% else %}
+{% assign current_variant_colour = current_variant.option1 %}
+{% assign current_variant_size = current_variant.option2 %}
+{% endif %}
 
 
 <article class="product product--{{current_variant_colour|handleize}} padded padded--underheader" itemscope itemtype="http://schema.org/Product" data-section-id='{{section.id}}' data-section-type='product' data-product-id="{{product.id}}">
@@ -10,13 +16,10 @@
 		<img src="{{current_variant.image.src|img_url:'1500x'}}" alt="{{current_variant.image.alt}}">
 	</div>
 
-	<!-- <div class="product__info text_center">
-		
-	</div> -->
-
 	<form class="product__form" data-add-to-cart-form>
+		{% if product.type == 'Custom' %}
+
 		<fieldset class="product__shirt_fieldset" id="name_fieldset" data-turbolinks-permanent>
-			<!-- <legend></legend> -->
 			<input class="input--transparent" type="text" name="name" value="1.Type name" maxlength="13">
 		</fieldset>
 
@@ -60,6 +63,31 @@
 			{% endfor %}
 			</select>
 		</fieldset>
+
+		{% else %}
+
+		<fieldset>
+			<legend>1. Select a colour &amp; size</legend>
+
+			<label class="label--tiny">Colour</label>
+			{% for variant in product.variants %}
+			{% if current_variant_size == variant.option2 %}
+			<input type="radio" name="colour" {% if variant.option1 == current_variant_colour %}checked{% endif %} value="{{variant.id}}" id="color_{{variant.id}}">
+			<label for="color_{{variant.id}}">{{variant.option1}}</label>
+			{% endif %}
+			{% endfor %}
+
+			<label class="label--tiny">Size</label>
+			<select name="size">
+			{% for variant in product.variants %}
+			{% if current_variant_colour == variant.option1 %}
+			<option {% if variant.option2 == current_variant_size %}selected{% endif %} value="{{variant.id}}" {% unless variant.available %}disabled{% endunless %}>{{variant.option2}}</option>
+			{% endif %}
+			{% endfor %}
+			</select>
+		</fieldset>
+
+		{% endif %}
 
 		<button class="button--black button--full normal_top" type="submit">Add to cart <small>({{current_variant.price|divided_by:100}} CAD)</small></button>
 	</form>

@@ -20,6 +20,11 @@ picture {
 		margin: 0 auto $vertical_rythm;
 	}
 
+	&.img--half {
+		width: 50%;
+		margin: 0 auto $vertical_rythm;
+	}
+
 	&.img--round {
 		width: 5.357rem;
 		margin: 0 auto $vertical_rythm/4;

@@ -128,11 +128,6 @@
 	&.grid--thick_guttered {
 		margin-left: -$gutter*2;
 		margin-bottom: -$gutter*2;
-
-		@media #{$tablet_landscape} {
-			margin-left: -$gutter;
-			margin-bottom: -$gutter;
-		}
 	}
 }
 	
@@ -141,10 +136,6 @@
 		.grid--guttered > & {
 			padding-left: $gutter;
 			padding-bottom: $gutter;
-
-			@media #{$phone} {
-				padding-left: $gutter/2;
-			}
 		}
 
 		.grid--tight_guttered > & {
@@ -155,11 +146,6 @@
 		.grid--thick_guttered > & {
 			padding-left: $gutter*2;
 			padding-bottom: $gutter*2;
-
-			@media #{$tablet_landscape} {
-				padding-left: $gutter;
-				padding-bottom: $gutter;
-			}
 		}
 
 
