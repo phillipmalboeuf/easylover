@@ -75,7 +75,7 @@
 			left: 0;
 
 			max-width: 100%;
-			padding-top: $gutter*10;
+			padding-top: $gutter*12;
 			padding-bottom: $gutter*2;
 		}
 	}
@@ -85,6 +85,7 @@
 			top: 30vw;
 			left: 25vw;
 			right: 25vw;
+			z-index: 0;
 
 			background: transparent;
 
@@ -100,7 +101,7 @@
 			}
 
 			@media #{$phone} {
-				top: 55vw;
+				top: 60vw;
 				left: 15vw;
 				right: 15vw;
 

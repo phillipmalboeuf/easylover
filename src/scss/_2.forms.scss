@@ -13,6 +13,9 @@ form {
 }
 
 	fieldset {
+		position: relative;
+		z-index: 1;
+
 		padding: $gutter;
 		border: none;
 		border-radius: $border_radius;

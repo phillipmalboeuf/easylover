@@ -11,6 +11,8 @@
 html {
 	font: #{$base_size}/#{$line_height} $body_font;
 
+	-webkit-tap-highlight-color: transparent;
+
 	@media #{$tablet_landscape} {
 		font-size: 16px;
 	}

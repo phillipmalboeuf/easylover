@@ -356,8 +356,6 @@
     };
 
     Slider.prototype.render = function() {
-      this.previous_slide_height = this.$el.find("[data-slide=" + this.current_slide + "] [data-slide-content]").height();
-      this.$el.find("[data-slider-container]").css("height", "-=" + (this.$el.find("[data-slide=" + this.current_slide + "]").height() - this.previous_slide_height) + "px");
       this.$el.find("[data-slide=" + this.current_slide + "]").css("opacity", 1);
       this.reset_autoplay();
       return this;
@@ -380,7 +378,6 @@
     };
 
     Slider.prototype.slide_to = function(e, index) {
-      var slide_height;
       if (e != null) {
         e.preventDefault();
         e.currentTarget.blur();
@@ -389,9 +386,6 @@
       this.current_slide = index;
       this.$el.find("[data-slide-marker]").removeClass("slider__marker--active");
       this.$el.find("[data-slide-marker=" + this.current_slide + "]").addClass("slider__marker--active");
-      slide_height = this.$el.find("[data-slide=" + this.current_slide + "] [data-slide-content]").height();
-      this.$el.find("[data-slider-container]").css("height", "-=" + (this.previous_slide_height - slide_height) + "px");
-      this.previous_slide_height = slide_height;
       this.$el.find("[data-slide]").css("opacity", 0.3);
       this.$el.find("[data-slide]").css("transform", "translateX(-" + this.current_slide + "00%)");
       return this.$el.find("[data-slide=" + this.current_slide + "]").css("opacity", 1);

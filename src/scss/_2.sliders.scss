@@ -4,20 +4,22 @@
 
 .slider {
 	position: relative;
-	// overflow-x: visible;
 	max-height: 100vh;
+	overflow-x: hidden;
 }
 
 	.slider__container {
 		@extend .grid;
 		@extend .grid--nowrap;
 
-		// overflow-y: hidden;
-		// overflow-x: visible;
 		width: 100%;
 		margin-left: 25%;
 
 		@include transition(height $fast);
+
+		@media #{$phone} {
+			margin-left: 0;
+		}
 	}
 
 		.slide {
@@ -68,37 +70,37 @@
 		// }
 	}
 
-	.slider__markers {
-		position: absolute;
-		bottom: $gutter;
-		left: 0;
-		width: 100%;
-		text-align: center;
-	}
+	// .slider__markers {
+	// 	position: absolute;
+	// 	bottom: $gutter;
+	// 	left: 0;
+	// 	width: 100%;
+	// 	text-align: center;
+	// }
 
-		.slider__marker {
-			height: 0.667rem;
-			width: 0.667rem;
+	// 	.slider__marker {
+	// 		height: 0.667rem;
+	// 		width: 0.667rem;
 
-			padding: 0;
-			border: 2px solid $white;
-			margin: 0 $vertical_rythm/2;
-			border-radius: 50%;
+	// 		padding: 0;
+	// 		border: 2px solid $white;
+	// 		margin: 0 $vertical_rythm/2;
+	// 		border-radius: 50%;
 
-			font-size: 0;
-			background: $dark_background;
+	// 		font-size: 0;
+	// 		background: $dark_background;
 
-			&.slider__marker--active {
-				border-color: $dark_background;
-				background: $white;
-			}
+	// 		&.slider__marker--active {
+	// 			border-color: $dark_background;
+	// 			background: $white;
+	// 		}
 
-			&:hover,
-			&:focus {
-				border-color: $highlight;
-				background: $white;
-			}
-		}
+	// 		&:hover,
+	// 		&:focus {
+	// 			border-color: $highlight;
+	// 			background: $white;
+	// 		}
+	// 	}
 
 
 	
