@@ -14,7 +14,7 @@
 	</div>
   {% endunless %}
 
-  {% unless template == 'product' %}
+  {% unless template == 'product' or template == 'collection' %}
   <div class="footer__products">
     {% for link in linklists[section.settings.footer_products].links %}
     <a href="{{link.url}}" class="button button--circle hide_on_tablet_landscape">{{link.title}}</a>

@@ -30,7 +30,7 @@
 </head>
 
 
-<body id="{{ page_title | handle }}" class="{% if customer %}logged_in {% endif %}{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} {% if template == 'blog' %}black_back{% endif %}">
+<body id="{{ page_title | handle }}" class="{% if customer %}logged_in {% endif %} {% if template == 'blog' %}black_back{% endif %}">
 
   {% include 'icons' %}
   {% section 'header' %}
