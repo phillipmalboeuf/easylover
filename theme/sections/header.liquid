@@ -14,6 +14,7 @@
   {% endif %}
 
   <nav class="padded padded--thick grid grid--middle" data-navigation>
+    {% if collection == blank %}
     <div class="col col--4of12 hide_on_tablet_portrait">
       {% for link in linklists['main-menu'].links %}
       {% unless link.active %}
@@ -29,6 +30,11 @@
       {% endunless %}
       {% endfor %}
     </div>
+    {% else %}
+    <div class="col col--4of12">
+      <a href="/collections" class="nav__link">< View all</a>
+    </div>
+    {% endif %}
 
     <div class="col col--4of12 text_center">
       <a href="/">
