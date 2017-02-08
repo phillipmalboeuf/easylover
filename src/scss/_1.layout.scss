@@ -80,6 +80,14 @@ footer {
 
 	&.padded--underheader {
 		padding-top: $gutter * 8;
+
+		@media #{$tablet_portrait} {
+			padding-top: $gutter*6;
+		}
+
+		@media #{$phone} {
+			padding-top: $gutter*4;
+		}
 	}
 
 	&.padded--small_bottom {

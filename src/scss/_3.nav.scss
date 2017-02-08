@@ -12,6 +12,10 @@ nav {
 
 		& + & {
 			margin-left: $vertical_rythm;
+
+			@media #{$phone} {
+				margin-left: $vertical_rythm/2;
+			}
 		}
 
 		&:hover,

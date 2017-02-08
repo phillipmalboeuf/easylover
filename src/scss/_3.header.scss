@@ -18,8 +18,12 @@
 }
 
 	.header__logotype {
+		margin: 0 auto;
 		width: 100%;
-		max-width: (86/$base) * 1rem;
+
+		@media #{$phone} {
+			max-width: (42/$base) * 1rem;	
+		}
 	}
 
 	.header__alert {

@@ -2,7 +2,7 @@
 
 <header class="header" data-section-id="{{ section.id }}" data-section-type="header-section" id="header" data-header>
   {% if section.settings.message %}
-  <div class="alert header__alert">
+  <div class="alert header__alert hide_on_phone">
     {% if section.settings.message_link != blank %}
       <a href="{{ section.settings.message_link }}" class="alert__message">
         {{ section.settings.message_text }}
@@ -23,12 +23,17 @@
     </div>
 
     <div class="col col--4of12 text_center">
-      <a href="/"><h1 class="highlight uppercase">{{shop.name}}</h1></a>
+      <a href="/">
+        <picture class="header__logotype">
+          <source srcset="{{'favicon.png'| asset_url }}" media="(max-width: 600px)">
+          <img src="{{'easylover-logo.gif'| asset_url }}" alt="Easy Lover Club">
+        </picture>
+      </a>
     </div>
 
     <div class="col col--4of12 text_right">
       <a href="/cart" class="nav__link" data-toggle-cart>
-        Your Cart (<span data-item-count>{{ cart.item_count }}</span>)
+        <span class="hide_on_phone">Your </span>Cart (<span data-item-count>{{ cart.item_count }}</span>)
       </a>
     </div>
   </nav>
