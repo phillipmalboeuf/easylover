@@ -20,7 +20,7 @@
 		{% for article in blog.articles %}
 			<div class="slide" data-slide={{forloop.index0}} style="width: {{100 | divided_by: size}}%;">
 				<div data-slide-content>
-					<img src="{{article.image.src|img_url: 'original'}}" alt="{{article.image.alt}}" title="{{article.title}}">
+					{% include 'picture', image: article.image %}
 				</div>
 			</div>
 		{% endfor %}
