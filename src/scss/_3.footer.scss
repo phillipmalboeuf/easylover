@@ -16,6 +16,9 @@
 
 	@media #{$phone} {
 		position: relative;
+		
+		color: $highlight;
+		padding-bottom: $gutter;
 	}
 }
 
