@@ -20,7 +20,7 @@ this["templates"]["cart"] = Handlebars.template({"1":function(container,depth0,h
   return "	<div class=\"cart__item\">\n		<div class=\"grid grid--tight_guttered grid--middle\">\n			<div class=\"col col--4of12\">\n				<a href=\""
     + alias4(((helper = (helper = helpers.url || (depth0 != null ? depth0.url : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"url","hash":{},"data":data}) : helper)))
     + "\" class=\"padded padded--tight\"><img src=\""
-    + alias4(((helper = (helper = helpers.image || (depth0 != null ? depth0.image : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"image","hash":{},"data":data}) : helper)))
+    + alias4((helpers.thumbnail || (depth0 && depth0.thumbnail) || alias2).call(alias1,(depth0 != null ? depth0.image : depth0),{"name":"thumbnail","hash":{},"data":data}))
     + "\"></a>\n			</div>\n\n			<div class=\"col col--5of12\">\n				<h6 class=\"small_bottom\"><a href=\""
     + alias4(((helper = (helper = helpers.url || (depth0 != null ? depth0.url : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"url","hash":{},"data":data}) : helper)))
     + "\"><strong>"

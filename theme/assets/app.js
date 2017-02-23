@@ -183,6 +183,10 @@
     }
   });
 
+  Handlebars.registerHelper('thumbnail', function(image) {
+    return image.replace(/(\.[^.]*)$/, "_medium$1").replace('http:', '');
+  });
+
   Handlebars.registerHelper('truncate', function(string, end) {
     if (string != null) {
       string = string.slice(0, end);
