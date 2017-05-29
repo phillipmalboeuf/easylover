@@ -14,5 +14,9 @@
 
 	&.box--tight {
 		padding: $gutter*2 $gutter;
+
+		h1 {
+			font-size: $big_size;
+		}
 	}
 }

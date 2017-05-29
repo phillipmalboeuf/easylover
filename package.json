@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "devDependencies": {
+    "growl": "^1.9.2",
     "grunt": "^0.4.5",
     "grunt-contrib-coffee": "^1.0.0",
     "grunt-contrib-concat": "^0.5.1",

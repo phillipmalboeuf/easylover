@@ -121,6 +121,11 @@ p {
 		line-height: (22/$base);
 	}
 
+	&.p--small,
+	.small & {
+		font-size: $small_size;
+	}
+
 	&:last-child {
 		margin-bottom: 0;
 	}
@@ -331,6 +336,7 @@ sub {
 .highlight { color: $highlight !important; }
 .red { color: $red; }
 .blue { color: $blue; }
+.dark { color: $dark_background; }
 
 
 // #BACKGROUNDS

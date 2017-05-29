@@ -13,7 +13,11 @@
 
 <article class="product product--{{current_variant_colour|handleize}} padded padded--underheader" itemscope itemtype="http://schema.org/Product" data-section-id='{{section.id}}' data-section-type='product' data-product-id="{{product.id}}">
 	<div class="product__back">
-		{% include 'picture', image: current_variant.image %}
+		{% if current_variant.image != blank %}
+			{% include 'picture', image: current_variant.image %}
+		{% else %}
+			{% include 'picture', image: product.featured_image %}
+		{% endif %}
 	</div>
 
 	<form class="product__form" data-add-to-cart-form>
@@ -67,6 +71,19 @@
 		{% else %}
 
 		<fieldset>
+
+			{% if current_variant_size == blank %}
+			<legend>1. Select a size</legend>
+
+			<label class="label--tiny">Size</label>
+			<select name="size">
+			{% for variant in product.variants %}
+			<option value="{{variant.id}}" {% unless variant.available %}disabled{% endunless %}>{{variant.option1}}</option>
+			{% endfor %}
+			</select>
+
+			{% else %}
+
 			<legend>1. Select a colour &amp; size</legend>
 
 			<label class="label--tiny">Colour</label>
@@ -85,6 +102,11 @@
 			{% endif %}
 			{% endfor %}
 			</select>
+
+			{% endif %}
+
+			
+			
 		</fieldset>
 
 		{% endif %}
