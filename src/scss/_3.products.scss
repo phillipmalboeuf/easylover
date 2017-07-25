@@ -4,7 +4,11 @@
 
 .product {
 	position: relative;
-	overflow-x: hidden;
+
+	&.product--custom {
+		overflow-x: hidden;	
+	}
+	
 
 	&.product--Classy [name="name"] {
 		font-family: "Classy";
@@ -32,25 +36,25 @@
 }
 	
 	.product__back {
-		position: fixed;
-		left: 0;
-		top: $gutter*3;
-		width: 100%;
 
-		@media #{$tablet_portrait} {
-			top: $gutter*4;
+		.product--custom & {
+			position: fixed;
+			left: 0;
+			top: $gutter*3;
+			width: 100%;
+
+			@media #{$tablet_portrait} {
+				top: $gutter*4;
+			}
+
+			@media #{$phone} {
+				left: -25%;
+				width: 150%;
+			}
 		}
 
 		@media #{$phone} {
-			// position: relative;
-			// top: 0;
-			left: -25%;
-			width: 150%;
-		}
-
-		&.product__back--smaller img {
-			padding-left: 15%;
-			padding-right: 15%;
+			position: fixed;
 		}
 	}
 

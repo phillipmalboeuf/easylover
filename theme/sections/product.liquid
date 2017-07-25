@@ -11,8 +11,8 @@
 {% endif %}
 
 
-<article class="product product--{{current_variant_colour|handleize}} padded padded--underheader" itemscope itemtype="http://schema.org/Product" data-section-id='{{section.id}}' data-section-type='product' data-product-id="{{product.id}}">
-	<div class="product__back {% if product.type != 'Custom' %}product__back--smaller{% endif %}">
+<article class="product product--{{current_variant_colour|handleize}} padded {% if product.type == 'Custom' %}product--custom{% endif %}" itemscope itemtype="http://schema.org/Product" data-section-id='{{section.id}}' data-section-type='product' data-product-id="{{product.id}}">
+	<div class="product__back">
 		{% if current_variant.image != blank %}
 			{% include 'picture', image: current_variant.image %}
 		{% else %}
