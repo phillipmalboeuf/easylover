@@ -11,7 +11,8 @@
     
     {% for product in collection.products %}
     <div class="col col--3of12 col--tablet_portrait--4of12 col--phone--6of12">
-      <a href="{{product.url | within: collection }}">
+      <a href="{{product.url | within: collection }}" class="product{% unless product.available  %} product--soldout{% endunless %}">
+        {% unless product.available  %}<div class="button button--circle">Sold Out</div>{% endunless %}
         <img src="{{product.featured_image.src|img_url: 'original'}}" alt="{{product.featured_image.alt}}">
         <p class="text_center p--small">{{product.title}}</p>
       </a>

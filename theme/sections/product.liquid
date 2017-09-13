@@ -111,7 +111,7 @@
 
 		{% endif %}
 
-		<button class="button--black button--full normal_top" type="submit">Add to cart <small>({{current_variant.price|divided_by:100}} CAD)</small></button>
+		<button class="button--black button--full normal_top" type="submit" {% unless product.available  %}disabled{% endunless %}>{% if product.available  %}Add to cart <small>({{current_variant.price|divided_by:100}} CAD)</small>{% else %}Out of Stock{% endif %}</button>
 	</form>
 </article>
 

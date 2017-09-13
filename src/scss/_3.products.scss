@@ -4,9 +4,32 @@
 
 .product {
 	position: relative;
+	display: inline-block;
 
 	&.product--custom {
 		overflow-x: hidden;	
+	}
+
+	&.product--soldout {
+
+		img {
+			opacity: 0.33;
+		}
+
+		.button--circle {
+			position: absolute;
+			top: -$vertical_rythm/2;
+			right: -$vertical_rythm/2;
+			z-index: 1;
+
+			font-size: $small_size;
+			line-height: 1;
+
+			width: (60/$base) * 1rem;
+			height: (60/$base) * 1rem;
+
+			background: $grey;
+		}
 	}
 	
 
