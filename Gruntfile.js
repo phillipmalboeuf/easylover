@@ -11,7 +11,7 @@ module.exports = function(grunt) {
         api_key: env_var.shopify.api_key,
         password: env_var.shopify.password,
         url: "to-be-decided-f-ck.myshopify.com",
-        theme: "165741134",
+        theme: "177963406",
         base: "theme/",
         disable_growl_notifications: true
       }
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
 
     open: {
       start: {
-        path: 'https://to-be-decided-f-ck.myshopify.com/?preview_theme_id=165741134',
+        path: 'https://to-be-decided-f-ck.myshopify.com/?preview_theme_id=177963406',
         app: 'Google Chrome'
       }
     },

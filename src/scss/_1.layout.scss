@@ -79,11 +79,11 @@ footer {
 	}
 
 	&.padded--underheader {
-		padding-top: $gutter * 8;
+		padding-top: $gutter*6;
 
-		@media #{$tablet_portrait} {
-			padding-top: $gutter*6;
-		}
+		// @media #{$tablet_portrait} {
+		// 	padding-top: $gutter*6;
+		// }
 
 		@media #{$phone} {
 			padding-top: $gutter*4;

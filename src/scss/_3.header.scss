@@ -9,7 +9,8 @@
 	width: 100%;
 	z-index: 10;
 
-	background-color: transparent;
+	background-color: $white;
+	box-shadow: 0 2px 20px 0 fade-out($grey--light, 0.5);
 	pointer-events: none;
 
 	a {
@@ -20,6 +21,7 @@
 	.header__logotype {
 		margin: 0 auto;
 		width: 100%;
+		max-width: (266/$base) * 1rem;
 
 		@media #{$phone} {
 			max-width: (42/$base) * 1rem;	

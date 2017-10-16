@@ -111,6 +111,18 @@
 		}
 	}
 
+	&.grid--max_height {
+		
+		> .col {
+			max-height: 100vh;
+			overflow: auto;
+
+			@media #{$tablet_portrait} {
+				max-height: none;
+			}
+		}
+	}
+
 	&.grid--guttered {
 		margin-left: -$gutter;
 		margin-bottom: -$gutter;

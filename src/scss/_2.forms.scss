@@ -4,7 +4,7 @@
 
 form {
 	// margin: 0 auto;
-	max-width: (300/$base) * 1rem;
+	max-width: (420/$base) * 1rem;
 
 	&[disabled] {
 		opacity: 0.2;
@@ -16,7 +16,7 @@ form {
 		position: relative;
 		z-index: 1;
 
-		padding: $gutter;
+		padding: $gutter/2 0;
 		border: none;
 		border-radius: $border_radius;
 		margin: 0;

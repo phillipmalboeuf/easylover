@@ -1,6 +1,6 @@
 
 <footer class="footer padded" data-section-id="{{ section.id }}" data-section-type="footer-section">
-  {% unless template == 'blog' %}
+  {% comment %}{% unless template == 'blog' %}
 	{% assign blog = blogs[section.settings.inspiration_blog] %}
 	<div class="grid grid--tight_guttered grid--bottom">
 		{% for article in blog.articles limit:1 %}
@@ -12,18 +12,18 @@
 		</div>
 		{% endfor %}
 	</div>
-  {% endunless %}
+  {% endunless %}{% endcomment %}
 
-  {% unless template == 'product' or template == 'list-collections' %}
+  {% unless template == 'product' or template == 'list-collections' or template == 'blog' %}
   <div class="footer__products">
     {% for link in linklists[section.settings.footer_products].links %}
     <a href="{{link.url}}" class="button button--circle hide_on_tablet_landscape">{{link.title}}</a>
     {% endfor %}
   </div>
 
-  <div class="footer__shirt hide_on_tablet_landscape">
+  {% comment %}<div class="footer__shirt hide_on_tablet_landscape">
     <img src="{{'sweatshirt.svg'|asset_url}}">
-  </div>
+  </div>{% endcomment %}
   {% endunless %}
 </footer>
 

@@ -11,10 +11,26 @@
 
 @font-face {
   font-family: 'HK Grotesk Pro';
+  src:  url('HKGroteskPro-SemiBold.woff2') format('woff2'),
+        url('HKGroteskPro-SemiBold.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HK Grotesk Pro';
   src:  url('HKGroteskPro-Bold.woff2') format('woff2'),
         url('HKGroteskPro-Bold.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HK Grotesk Pro';
+  src:  url('HKGroteskPro-Black.woff2') format('woff2'),
+        url('HKGroteskPro-Black.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
 }
 
 @font-face {

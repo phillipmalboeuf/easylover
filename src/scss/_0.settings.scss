@@ -3,11 +3,11 @@
 // #COLORS
 
 $white: #fff;
-$black: #1A1A1A;
-$black--light: #333333;
+$black: #111111;
+$black--light: #595959;
 $blue: #2B2C7A;
 $blue--light: #E3F5FF;
-$grey: #AAA999;
+$grey: #999999;
 $grey--light: #F2F2F2;
 $red: #DB2A12;
 $pink: #FFA7A7;
@@ -16,7 +16,7 @@ $body_color: $black;
 $headings_color: inherit;
 $highlight: $pink;
 $light_background: $blue--light;
-$dark_background: $blue;
+$dark_background: $black;
 $alert_color: $pink;
 
 
@@ -31,6 +31,7 @@ $alternate_font: "HK Grotesk Pro", sans-serif;
 
 $base: 18;
 $base_size: $base * 1px;
+$giant_size: (176/$base) * 1rem;
 $massive_size: (66/$base) * 1rem;
 $huge_size: (42/$base) * 1rem;
 $big_size: (28/$base) * 1rem;
@@ -40,7 +41,7 @@ $small_size: (16/$base) * 1rem;
 $tiny_size: (12/$base) * 1rem;
 
 $vertical_rythm: 1rem;
-$line_height: 1.5;
+$line_height: 1.333;
 $max_width: 1400px;
 $letter_spacing: 0;
 $border_radius: 3px;

@@ -11,107 +11,122 @@
 {% endif %}
 
 
-<article class="product product--{{current_variant_colour|handleize}} padded {% if product.type == 'Custom' %}product--custom{% endif %}" itemscope itemtype="http://schema.org/Product" data-section-id='{{section.id}}' data-section-type='product' data-product-id="{{product.id}}">
-	<div class="product__back">
-		{% if current_variant.image != blank %}
-			{% include 'picture', image: current_variant.image %}
-		{% else %}
-			{% include 'picture', image: product.featured_image %}
-		{% endif %}
-	</div>
+<article class="product product--{{current_variant_colour|handleize}} {% if product.type == 'Custom' %}product--custom{% endif %}" itemscope itemtype="http://schema.org/Product" data-section-id='{{section.id}}' data-section-type='product' data-product-id="{{product.id}}">
+	
+	<div class="grid grid--max_height grid--center">
+		<div class="col col--6of12 col--tablet_portrait--10of12 col--phone--12of12 padded padded--underheader">
+			<h1 class="text_center big_bottom h1--giant hide_on_tablet_portrait">Shirt</h1>
 
-	<form class="product__form" data-add-to-cart-form>
-		{% if product.type == 'Custom' %}
-
-		<fieldset class="product__shirt_fieldset" id="name_fieldset" data-turbolinks-permanent>
-			<input class="input--transparent" type="text" name="name" value="1.Type name" maxlength="13">
-		</fieldset>
-
-		<fieldset>
-			<legend>2. Select a shirt</legend>
-			{% for variant in product.variants %}
-			{% if current_variant_size == variant.option3 and current_variant_colour == variant.option2 %}
-			<input type="radio" name="shirt" {% if variant.option1 == current_variant_shirt %}checked{% endif %} value="{{variant.id}}" id="shirt_{{variant.id}}">
-			<label for="shirt_{{variant.id}}">{{variant.option1}}</label>
-			{% endif %}
-			{% endfor %}
-		</fieldset>
-
-		<fieldset id="style_fieldset" data-turbolinks-permanent>
-			<legend>3. Select a style</legend>
-			<select name="style">
-				<option value="Street">Street</option>
-				<option value="Classy">Classy</option>
-				<option value="Fun">Fun</option>
-			</select>
-			<small>* Final print files might be adjusted slightly.</small>
-		</fieldset>
-
-		<fieldset>
-			<legend>4. Select a colour &amp; size</legend>
-
-			<label class="label--tiny">Colour</label>
-			{% for variant in product.variants %}
-			{% if current_variant_size == variant.option3 and current_variant_shirt == variant.option1 %}
-			<input type="radio" name="colour" {% if variant.option2 == current_variant_colour %}checked{% endif %} value="{{variant.id}}" id="color_{{variant.id}}">
-			<label for="color_{{variant.id}}">{{variant.option2}}</label>
-			{% endif %}
-			{% endfor %}
-
-			<label class="label--tiny">Size</label>
-			<select name="size">
-			{% for variant in product.variants %}
-			{% if current_variant_colour == variant.option2 and current_variant_shirt == variant.option1 %}
-			<option {% if variant.option3 == current_variant_size %}selected{% endif %} value="{{variant.id}}" {% unless variant.available %}disabled{% endunless %}>{{variant.option3}}</option>
-			{% endif %}
-			{% endfor %}
-			</select>
-		</fieldset>
-
-		{% else %}
-
-		<fieldset>
-
-			{% if current_variant_size == blank %}
-			<legend>1. Select a size</legend>
-
-			<label class="label--tiny">Size</label>
-			<select name="size">
-			{% for variant in product.variants %}
-			<option value="{{variant.id}}" {% unless variant.available %}disabled{% endunless %}>{{variant.option1}}</option>
-			{% endfor %}
-			</select>
-
+			{% if current_variant.image != blank %}
+				{% include 'picture', image: current_variant.image %}
 			{% else %}
-
-			<legend>1. Select a colour &amp; size</legend>
-
-			<label class="label--tiny">Colour</label>
-			{% for variant in product.variants %}
-			{% if current_variant_size == variant.option2 %}
-			<input type="radio" name="colour" {% if variant.option1 == current_variant_colour %}checked{% endif %} value="{{variant.id}}" id="color_{{variant.id}}">
-			<label for="color_{{variant.id}}">{{variant.option1}}</label>
+				{% include 'picture', image: product.featured_image %}
 			{% endif %}
-			{% endfor %}
+		</div>
 
-			<label class="label--tiny">Size</label>
-			<select name="size">
-			{% for variant in product.variants %}
-			{% if current_variant_colour == variant.option1 %}
-			<option {% if variant.option2 == current_variant_size %}selected{% endif %} value="{{variant.id}}" {% unless variant.available %}disabled{% endunless %}>{{variant.option2}}</option>
+		<div class="col col--6of12 col--tablet_portrait--10of12 col--phone--12of12 padded padded--underheader">
+			<h1 class="text_center big_bottom h1--giant h1--outline hide_on_tablet_portrait">Info</h1>
+
+			<h2 class="tiny_bottom">{{product.title}}<br><strong>{{current_variant.price|divided_by:100}} CAD</strong></h2>
+
+			{% if product.description != "" %}
+			{{product.description}}
+			{% else %}	
+			<p>Bonjour, welcome to the shop. I’ve been working on these ideas for the past years: some bad, some good. Feel free to browse. You touch, you buy. 100% cotton.</p>
 			{% endif %}
-			{% endfor %}
-			</select>
-
-			{% endif %}
-
 			
-			
-		</fieldset>
 
-		{% endif %}
+			<form class="product__form" data-add-to-cart-form>
+				{% if product.type == 'Custom' %}
 
-		<button class="button--black button--full normal_top" type="submit" {% unless product.available  %}disabled{% endunless %}>{% if product.available  %}Add to cart <small>({{current_variant.price|divided_by:100}} CAD)</small>{% else %}Out of Stock{% endif %}</button>
-	</form>
+				<fieldset class="product__shirt_fieldset" id="name_fieldset" data-turbolinks-permanent>
+					<input class="input--transparent" type="text" name="name" value="1.Type name" maxlength="13">
+				</fieldset>
+
+				<fieldset>
+					<legend>2. Select a shirt</legend>
+					{% for variant in product.variants %}
+					{% if current_variant_size == variant.option3 and current_variant_colour == variant.option2 %}
+					<input type="radio" name="shirt" {% if variant.option1 == current_variant_shirt %}checked{% endif %} value="{{variant.id}}" id="shirt_{{variant.id}}">
+					<label for="shirt_{{variant.id}}">{{variant.option1}}</label>
+					{% endif %}
+					{% endfor %}
+				</fieldset>
+
+				<fieldset id="style_fieldset" data-turbolinks-permanent>
+					<legend>3. Select a style</legend>
+					<select name="style">
+						<option value="Street">Street</option>
+						<option value="Classy">Classy</option>
+						<option value="Fun">Fun</option>
+					</select>
+					<small>* Final print files might be adjusted slightly.</small>
+				</fieldset>
+
+				<fieldset>
+					<legend>4. Select a colour &amp; size</legend>
+
+					<label class="label--tiny">Colour</label>
+					{% for variant in product.variants %}
+					{% if current_variant_size == variant.option3 and current_variant_shirt == variant.option1 %}
+					<input type="radio" name="colour" {% if variant.option2 == current_variant_colour %}checked{% endif %} value="{{variant.id}}" id="color_{{variant.id}}">
+					<label for="color_{{variant.id}}">{{variant.option2}}</label>
+					{% endif %}
+					{% endfor %}
+
+					<label class="label--tiny">Size</label>
+					<select name="size">
+					{% for variant in product.variants %}
+					{% if current_variant_colour == variant.option2 and current_variant_shirt == variant.option1 %}
+					<option {% if variant.option3 == current_variant_size %}selected{% endif %} value="{{variant.id}}" {% unless variant.available %}disabled{% endunless %}>{{variant.option3}}</option>
+					{% endif %}
+					{% endfor %}
+					</select>
+				</fieldset>
+
+				{% else %}
+
+				<fieldset>
+
+					{% if current_variant_size == blank %}
+
+					<label class="label--tiny">Size</label>
+					<select name="size">
+					{% for variant in product.variants %}
+					<option value="{{variant.id}}" {% unless variant.available %}disabled{% endunless %}>{{variant.option1}}</option>
+					{% endfor %}
+					</select>
+
+					{% else %}
+
+					<label class="label--tiny">Colour</label>
+					{% for variant in product.variants %}
+					{% if current_variant_size == variant.option2 %}
+					<input type="radio" name="colour" {% if variant.option1 == current_variant_colour %}checked{% endif %} value="{{variant.id}}" id="color_{{variant.id}}">
+					<label for="color_{{variant.id}}">{{variant.option1}}</label>
+					{% endif %}
+					{% endfor %}
+
+					<label class="label--tiny">Size</label>
+					<select name="size">
+					{% for variant in product.variants %}
+					{% if current_variant_colour == variant.option1 %}
+					<option {% if variant.option2 == current_variant_size %}selected{% endif %} value="{{variant.id}}" {% unless variant.available %}disabled{% endunless %}>{{variant.option2}}</option>
+					{% endif %}
+					{% endfor %}
+					</select>
+
+					{% endif %}
+
+					
+					
+				</fieldset>
+
+				{% endif %}
+
+				<button class="button--black button--full normal_top" type="submit" {% unless product.available  %}disabled{% endunless %}>{% if product.available  %}Add to cart{% else %}Out of Stock{% endif %}</button>
+			</form>
+		</div>
+	</div>	
 </article>
 

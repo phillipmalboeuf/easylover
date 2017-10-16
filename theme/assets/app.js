@@ -549,6 +549,13 @@
       });
       this.$el.html(this.template(this.data));
       $("[data-item-count]").text(this.model.get("item_count"));
+      if (this.model.get("item_count") != null) {
+        if (this.model.get("item_count") > 0) {
+          $("[data-toggle-cart]").addClass("nav__link--active");
+        } else {
+          $("[data-toggle-cart]").removeClass("nav__link--active");
+        }
+      }
       return this;
     };
 

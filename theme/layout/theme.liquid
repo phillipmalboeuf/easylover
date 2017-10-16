@@ -32,7 +32,7 @@
 </head>
 
 
-<body id="{{ page_title | handle }}" class="{% if customer %}logged_in {% endif %}{% if template == 'blog' %}black_back{% elsif template == 'list-collections' or template == 'collection' or (template == 'product' and product.type != 'Custom') %}white_back{% endif %}">
+<body id="{{ page_title | handle }}" class="{% if customer %}logged_in {% endif %}">
 
   {% include 'icons' %}
   {% section 'header' %}

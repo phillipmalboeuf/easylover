@@ -1,0 +1,35 @@
+
+
+
+{% assign id = section.id %}
+
+<section class="padded padded--thick padded--underheader text_center" data-section-id="{{ section.id }}" data-section-type="text">
+  <h1>{{section.settings.title}}</h1>
+  <p>{{section.settings.body}}</p>
+</section>
+
+
+{% schema %}
+{
+  "name": "Text",
+  "class": "index-section",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    },
+    {
+      "id": "body",
+      "type": "richtext",
+      "label": "Body"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

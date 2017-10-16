@@ -6,10 +6,6 @@
 	position: relative;
 	display: inline-block;
 
-	&.product--custom {
-		overflow-x: hidden;	
-	}
-
 	&.product--soldout {
 
 		img {
@@ -60,56 +56,11 @@
 	
 	.product__back {
 
-		.product--custom & {
-			position: fixed;
-			left: 0;
-			top: $gutter*3;
-			width: 100%;
-
-			@media #{$tablet_portrait} {
-				top: $gutter*4;
-			}
-
-			@media #{$phone} {
-				left: -25%;
-				width: 150%;
-			}
-		}
-
-		@media #{$phone} {
-			position: fixed;
-		}
 	}
 
-	// .product__info {
-	// 	position: fixed;
-	// 	bottom: $gutter;
-	// 	left: 0;
-	// 	width: 100%;
-
-	// 	color: $grey;
-	// }
 
 	.product__form {
-		position: fixed;
 
-		bottom: $gutter*2;
-		right: $gutter*2;
-
-		@media #{$tablet_portrait} {
-			bottom: $gutter;
-			right: $gutter;
-		}
-
-		@media #{$phone} {
-			position: relative;
-			bottom: 0;
-			left: 0;
-
-			max-width: 100%;
-			padding-top: $gutter*12;
-			padding-bottom: $gutter*2;
-		}
 	}
 
 		.product__shirt_fieldset {

@@ -3,12 +3,17 @@
 // #NAV
 
 nav {
+	padding: $gutter*1.66 $gutter $gutter/2;
 
+	@media #{$phone} {
+		padding: $gutter/2;
+	}
 }
 
 	.nav__link {
 		font-family: $alternate_font;
-		font-weight: bold;
+		font-weight: 500;
+		color: $grey;
 
 		& + & {
 			margin-left: $vertical_rythm;
@@ -26,6 +31,10 @@ nav {
 		&.nav__link--line {
 			display: block;
 			line-height: (24/$base);
+		}
+
+		&.nav__link--active {
+			color: $black;
 		}
 	}
 

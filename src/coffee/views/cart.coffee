@@ -33,6 +33,12 @@ class Lover.Views.Cart extends Backbone.View
 		this.$el.html @template(@data)
 		$("[data-item-count]").text @model.get("item_count")
 
+		if @model.get("item_count")?
+			if @model.get("item_count") > 0
+				$("[data-toggle-cart]").addClass "nav__link--active"
+			else
+				$("[data-toggle-cart]").removeClass "nav__link--active"
+
 		# Currency.convertAll(shopCurrency, cookieCurrency)
 
 
