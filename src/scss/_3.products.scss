@@ -3,7 +3,6 @@
 // #PRODUCT
 
 .product {
-	position: relative;
 	display: inline-block;
 
 	&.product--soldout {
@@ -29,67 +28,46 @@
 	}
 	
 
-	&.product--Classy [name="name"] {
+	&.product--Classy .product__custom_text {
 		font-family: "Classy";
 	}
 
-	&.product--Fun [name="name"] {
+	&.product--Fun .product__custom_text {
 		font-family: "Fun";
 	}
 
-	&.product--Street [name="name"] {
+	&.product--Street .product__custom_text {
 		font-family: "Street";
 	}
 
-	&.product--black-white [name="name"] {
+	&.product--black-white .product__custom_text {
 		color: $black;
 	}
 
-	&.product--red-white [name="name"] {
+	&.product--red-white .product__custom_text {
 		color: $red;
 	}
 
-	&.product--white-black [name="name"] {
+	&.product--white-black .product__custom_text {
 		color: $white;
 	}
 }
-	
-	.product__back {
 
-	}
+	.product__custom_text {
+		position: absolute;
+		top: 30%;
+		left: 0;
+		width: 100%;
+		z-index: 2;
 
+		text-align: center;
+		color: $white;
+		font-size: 3rem;
+		font-family: "Street";
+		font-weight: normal;
 
-	.product__form {
-
-	}
-
-		.product__shirt_fieldset {
-			position: fixed;
-			top: 30vw;
-			left: 25vw;
-			right: 25vw;
-			z-index: 0;
-
-			background: transparent;
-
-			[name="name"] {
-				color: $white;
-				font-size: 7.5vw;
-				font-family: "Street";
-				font-weight: normal;
-			}
-
-			@media #{$tablet_portrait} {
-				top: 35vw;
-			}
-
-			@media #{$phone} {
-				top: 60vw;
-				left: 15vw;
-				right: 15vw;
-
-				[name="name"] {
-					font-size: 8.5vw;
-				}
-			}
+		@media #{$phone} {
+			font-size: 2rem;
 		}
+	}
+	

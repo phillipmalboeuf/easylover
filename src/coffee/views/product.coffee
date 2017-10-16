@@ -2,6 +2,7 @@ class Lover.Views.Product extends Backbone.View
 
 
 	events: 
+		"input [name='name']": "input_name"
 		"click [name='shirt']": "change_variant"
 		"click [name='colour']": "change_variant"
 		"click [data-thumbnail]": "show_image"
@@ -23,6 +24,8 @@ class Lover.Views.Product extends Backbone.View
 
 		this
 
+	input_name: (e)->
+		this.$el.find("[data-custom-text]").text(e.currentTarget.value)
 
 	change_style: (e)->
 		this.$el.removeClass "product--"+@style

@@ -17,10 +17,21 @@
 		<div class="col col--6of12 col--tablet_portrait--10of12 col--phone--12of12 padded padded--underheader">
 			<h1 class="text_center big_bottom h1--giant hide_on_tablet_portrait">Shirt</h1>
 
+			{% if product.type == 'Custom' %}
+			<div class="relative">
+				{% if current_variant.image != blank %}
+					{% include 'picture', image: current_variant.image %}
+				{% else %}
+					{% include 'picture', image: product.featured_image %}
+				{% endif %}
+				<span class="product__custom_text" id="name_text" data-custom-text data-turbolinks-permanent>Lover</span>
+			</div>
+			{% else %}
 			{% if current_variant.image != blank %}
 				{% include 'picture', image: current_variant.image %}
 			{% else %}
 				{% include 'picture', image: product.featured_image %}
+			{% endif %}
 			{% endif %}
 		</div>
 
@@ -36,15 +47,26 @@
 			{% endif %}
 			
 
-			<form class="product__form" data-add-to-cart-form>
+			<form class="product__form big_bottom" data-add-to-cart-form>
 				{% if product.type == 'Custom' %}
 
-				<fieldset class="product__shirt_fieldset" id="name_fieldset" data-turbolinks-permanent>
-					<input class="input--transparent" type="text" name="name" value="1.Type name" maxlength="13">
+				<fieldset id="name_fieldset" data-turbolinks-permanent>
+					<label class="label--tiny">1. Enter your lover’s name</label>
+					<input type="text" name="name" placeholder="Lover" maxlength="13">
+					<small>* Final print files might be adjusted slightly.</small>
+				</fieldset>
+
+				<fieldset id="style_fieldset" data-turbolinks-permanent>
+					<label class="label--tiny">2. Style</label>
+					<select name="style">
+						<option value="Street">Street</option>
+						<option value="Classy">Classy</option>
+						<option value="Fun">Fun</option>
+					</select>
 				</fieldset>
 
 				<fieldset>
-					<legend>2. Select a shirt</legend>
+					<label class="label--tiny">3. Select type</label>
 					{% for variant in product.variants %}
 					{% if current_variant_size == variant.option3 and current_variant_colour == variant.option2 %}
 					<input type="radio" name="shirt" {% if variant.option1 == current_variant_shirt %}checked{% endif %} value="{{variant.id}}" id="shirt_{{variant.id}}">
@@ -53,28 +75,18 @@
 					{% endfor %}
 				</fieldset>
 
-				<fieldset id="style_fieldset" data-turbolinks-permanent>
-					<legend>3. Select a style</legend>
-					<select name="style">
-						<option value="Street">Street</option>
-						<option value="Classy">Classy</option>
-						<option value="Fun">Fun</option>
-					</select>
-					<small>* Final print files might be adjusted slightly.</small>
-				</fieldset>
-
 				<fieldset>
-					<legend>4. Select a colour &amp; size</legend>
-
-					<label class="label--tiny">Colour</label>
+					<label class="label--tiny">4. Colour</label>
 					{% for variant in product.variants %}
 					{% if current_variant_size == variant.option3 and current_variant_shirt == variant.option1 %}
 					<input type="radio" name="colour" {% if variant.option2 == current_variant_colour %}checked{% endif %} value="{{variant.id}}" id="color_{{variant.id}}">
 					<label for="color_{{variant.id}}">{{variant.option2}}</label>
 					{% endif %}
 					{% endfor %}
+				</fieldset>
 
-					<label class="label--tiny">Size</label>
+				<fieldset>
+					<label class="label--tiny">5. Size</label>
 					<select name="size">
 					{% for variant in product.variants %}
 					{% if current_variant_colour == variant.option2 and current_variant_shirt == variant.option1 %}
@@ -90,7 +102,7 @@
 
 					{% if current_variant_size == blank %}
 
-					<label class="label--tiny">Size</label>
+					<label class="label--tiny">1. Size</label>
 					<select name="size">
 					{% for variant in product.variants %}
 					<option value="{{variant.id}}" {% unless variant.available %}disabled{% endunless %}>{{variant.option1}}</option>
@@ -99,7 +111,7 @@
 
 					{% else %}
 
-					<label class="label--tiny">Colour</label>
+					<label class="label--tiny">1. Colour</label>
 					{% for variant in product.variants %}
 					{% if current_variant_size == variant.option2 %}
 					<input type="radio" name="colour" {% if variant.option1 == current_variant_colour %}checked{% endif %} value="{{variant.id}}" id="color_{{variant.id}}">
@@ -107,7 +119,7 @@
 					{% endif %}
 					{% endfor %}
 
-					<label class="label--tiny">Size</label>
+					<label class="label--tiny">2. Size</label>
 					<select name="size">
 					{% for variant in product.variants %}
 					{% if current_variant_colour == variant.option1 %}

@@ -1038,6 +1038,7 @@
     }
 
     Product.prototype.events = {
+      "input [name='name']": "input_name",
       "click [name='shirt']": "change_variant",
       "click [name='colour']": "change_variant",
       "click [data-thumbnail]": "show_image",
@@ -1055,6 +1056,10 @@
       this.style = this.$el.find("[name='style']").val();
       this.$el.addClass("product--" + this.style);
       return this;
+    };
+
+    Product.prototype.input_name = function(e) {
+      return this.$el.find("[data-custom-text]").text(e.currentTarget.value);
     };
 
     Product.prototype.change_style = function(e) {
