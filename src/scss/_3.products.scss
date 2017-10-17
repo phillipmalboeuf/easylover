@@ -3,6 +3,7 @@
 // #PRODUCT
 
 .product {
+	position: relative;
 	display: inline-block;
 
 	&.product--soldout {

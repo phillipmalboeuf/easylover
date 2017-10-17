@@ -27,11 +27,9 @@
 				<span class="product__custom_text" id="name_text" data-custom-text data-turbolinks-permanent>Lover</span>
 			</div>
 			{% else %}
-			{% if current_variant.image != blank %}
-				{% include 'picture', image: current_variant.image %}
-			{% else %}
-				{% include 'picture', image: product.featured_image %}
-			{% endif %}
+			{% for image in product.images %}
+				{% include 'picture', image: image %}
+			{% endfor %}
 			{% endif %}
 		</div>
 
