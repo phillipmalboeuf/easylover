@@ -15,11 +15,11 @@
   {% endunless %}{% endcomment %}
 
   {% unless template == 'product' or template == 'list-collections' or template == 'blog' %}
-  <div class="footer__products">
+  {% comment %}<div class="footer__products">
     {% for link in linklists[section.settings.footer_products].links %}
     <a href="{{link.url}}" class="button button--circle hide_on_tablet_landscape">{{link.title}}</a>
     {% endfor %}
-  </div>
+  </div>{% endcomment %}
 
   {% comment %}<div class="footer__shirt hide_on_tablet_landscape">
     <img src="{{'sweatshirt.svg'|asset_url}}">

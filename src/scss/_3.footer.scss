@@ -1,30 +1,30 @@
 
 // #FOOTER
 .footer {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	z-index: 10;
+	// position: fixed;
+	// bottom: 0;
+	// left: 0;
+	// width: 100%;
+	// z-index: 10;
 
-	padding-bottom: $gutter*2;
-	pointer-events: none;
+	// padding-bottom: $gutter*2;
+	// pointer-events: none;
 
-	a {
-		pointer-events: auto;
-	}
+	// a {
+	// 	pointer-events: auto;
+	// }
 
-	@media #{$phone} {
-		position: relative;
+	// @media #{$phone} {
+	// 	position: relative;
 		
-		color: $highlight;
-		padding-bottom: $gutter;
-	}
+	// 	color: $highlight;
+	// 	padding-bottom: $gutter;
+	// }
 }
 
 	.footer__shirt,
 	.footer__products {
-		position: fixed;
+		position: absolute;
 		right: 0;
 		bottom: 0;
 
