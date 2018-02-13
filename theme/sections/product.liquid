@@ -44,8 +44,11 @@
 			<p>Bonjour, welcome to the shop. I’ve been working on these ideas for the past years: some bad, some good. Feel free to browse. You touch, you buy. 100% cotton.</p>
 			{% endif %}
 			
+			{% if product.type != 'Custom' %}
+			<br><br><br><br><br><br><br>
+			{% endif %}
 
-			<form class="product__form big_bottom" data-add-to-cart-form>
+			<form class="{% if product.type != 'Custom' %}product__form padded{% endif %}" data-add-to-cart-form>
 				{% if product.type == 'Custom' %}
 
 				<fieldset id="name_fieldset" data-turbolinks-permanent>

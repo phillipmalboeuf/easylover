@@ -55,6 +55,20 @@
 	}
 }
 
+	.product__form {
+		position: fixed;
+		bottom: 0;
+		left: 50%;
+		width: 50%;
+		background: $white;
+
+		@media #{$tablet_portrait} {
+			left: 0;
+			width: 100%;
+			max-width: none;
+		}
+	}
+
 	.product__custom_text {
 		position: absolute;
 		top: 30%;
