@@ -12,8 +12,15 @@
 
 
 <article class="product product--{{current_variant_colour|handleize}} {% if product.type == 'Custom' %}product--custom{% endif %}" itemscope itemtype="http://schema.org/Product" data-section-id='{{section.id}}' data-section-type='product' data-product-id="{{product.id}}">
+	<meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
+  <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
+  <meta itemprop="brand" content="{{ product.vendor }}">
+  <meta itemprop="image" content="{{ product.featured_image | img_url: 'original' }}">
+  <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
 	
-	<div class="grid grid--max_height grid--center">
+	<div class="grid grid--max_height grid--center" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+		<meta itemprop="priceCurrency" content="{{ shop.currency }}">
+    <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
 		<div class="col col--6of12 col--tablet_portrait--10of12 col--phone--12of12 padded padded--underheader">
 			<h1 class="text_center big_bottom h1--giant hide_on_tablet_portrait">Shirt</h1>
 
