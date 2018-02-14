@@ -8,6 +8,7 @@ class Lover.Views.Product extends Backbone.View
 		"click [data-thumbnail]": "show_image"
 		"submit [data-add-to-cart-form]": "add_to_cart"
 		"change [name='style']": "change_style"
+		"change [name='position']": "change_position"
 
 
 	initialize: ->
@@ -22,6 +23,9 @@ class Lover.Views.Product extends Backbone.View
 		@style = this.$el.find("[name='style']").val()
 		this.$el.addClass "product--"+@style
 
+		@position = this.$el.find("[name='position']").val()
+		this.$el.addClass "product--"+@position
+
 		this
 
 	input_name: (e)->
@@ -31,6 +35,11 @@ class Lover.Views.Product extends Backbone.View
 		this.$el.removeClass "product--"+@style
 		@style = e.currentTarget.value
 		this.$el.addClass "product--"+@style
+
+	change_position: (e)->
+		this.$el.removeClass "product--"+@position
+		@position = e.currentTarget.value
+		this.$el.addClass "product--"+@position
 
 
 	change_variant: (e)->
@@ -62,6 +71,7 @@ class Lover.Views.Product extends Backbone.View
 
 		data["properties[Name]"] = e.currentTarget["name"].value
 		data["properties[Style]"] = e.currentTarget["style"].value
+		data["properties[Position]"] = e.currentTarget["position"].value
 
 		Lover.cart.add this.$el.find("[name='size']").val(), 1, data
 		Lover.cart_view.show()

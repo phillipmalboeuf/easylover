@@ -1043,7 +1043,8 @@
       "click [name='colour']": "change_variant",
       "click [data-thumbnail]": "show_image",
       "submit [data-add-to-cart-form]": "add_to_cart",
-      "change [name='style']": "change_style"
+      "change [name='style']": "change_style",
+      "change [name='position']": "change_position"
     };
 
     Product.prototype.initialize = function() {
@@ -1055,6 +1056,8 @@
       this.$el.find("[name='name']").focus();
       this.style = this.$el.find("[name='style']").val();
       this.$el.addClass("product--" + this.style);
+      this.position = this.$el.find("[name='position']").val();
+      this.$el.addClass("product--" + this.position);
       return this;
     };
 
@@ -1066,6 +1069,12 @@
       this.$el.removeClass("product--" + this.style);
       this.style = e.currentTarget.value;
       return this.$el.addClass("product--" + this.style);
+    };
+
+    Product.prototype.change_position = function(e) {
+      this.$el.removeClass("product--" + this.position);
+      this.position = e.currentTarget.value;
+      return this.$el.addClass("product--" + this.position);
     };
 
     Product.prototype.change_variant = function(e) {
@@ -1102,6 +1111,7 @@
       e.stopImmediatePropagation();
       data["properties[Name]"] = e.currentTarget["name"].value;
       data["properties[Style]"] = e.currentTarget["style"].value;
+      data["properties[Position]"] = e.currentTarget["position"].value;
       Lover.cart.add(this.$el.find("[name='size']").val(), 1, data);
       return Lover.cart_view.show();
     };

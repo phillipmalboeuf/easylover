@@ -85,5 +85,16 @@
 		@media #{$phone} {
 			font-size: 2rem;
 		}
+
+		.product--Pocket & {
+			top: 27.5%;
+			left: 46.5%;
+			width: 27.5%;
+			font-size: 1.5rem;
+
+			@media #{$phone} {
+				font-size: 1rem;
+			}
+		}
 	}
 	

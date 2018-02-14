@@ -67,7 +67,15 @@
 				</fieldset>
 
 				<fieldset>
-					<label class="label--tiny">3. Select type</label>
+					<label class="label--tiny">3. Placement</label>
+					<select name="position">
+						<option value="Center">Center</option>
+						<option value="Pocket">Pocket</option>
+					</select>
+				</fieldset>
+
+				<fieldset>
+					<label class="label--tiny">4. Select type</label>
 					{% for variant in product.variants %}
 					{% if current_variant_size == variant.option3 and current_variant_colour == variant.option2 %}
 					<input type="radio" name="shirt" {% if variant.option1 == current_variant_shirt %}checked{% endif %} value="{{variant.id}}" id="shirt_{{variant.id}}">
@@ -77,7 +85,7 @@
 				</fieldset>
 
 				<fieldset>
-					<label class="label--tiny">4. Colour</label>
+					<label class="label--tiny">5. Colour</label>
 					{% for variant in product.variants %}
 					{% if current_variant_size == variant.option3 and current_variant_shirt == variant.option1 %}
 					<input type="radio" name="colour" {% if variant.option2 == current_variant_colour %}checked{% endif %} value="{{variant.id}}" id="color_{{variant.id}}">
@@ -87,7 +95,7 @@
 				</fieldset>
 
 				<fieldset>
-					<label class="label--tiny">5. Size</label>
+					<label class="label--tiny">6. Size</label>
 					<select name="size">
 					{% for variant in product.variants %}
 					{% if current_variant_colour == variant.option2 and current_variant_shirt == variant.option1 %}
