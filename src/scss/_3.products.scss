@@ -55,6 +55,31 @@
 	}
 }
 
+	.product__images {
+		position: relative;
+
+		picture:nth-child(2) {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+
+	    opacity: 0;
+
+	    @media #{$phone} {
+	    	display: none;
+	    }
+	  }
+
+  	a:hover &,
+    a:focus & {
+
+      picture:nth-child(2) {
+        opacity: 1;
+      }
+    }
+	}
+
 	.product__form {
 		position: fixed;
 		bottom: 0;

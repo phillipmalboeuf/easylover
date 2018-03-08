@@ -1,5 +1,6 @@
 <picture>
-  <source srcset="{{image.src|img_url: 'large'}}" media="(max-width: 600px)">
-  <source srcset="{{image.src|img_url: 'grande'}}" media="(max-width: 900px)">
-  <img src="{{image.src|img_url: '1400x'}}" alt="{{image.alt}}">
+  <source srcset="{{image.src|img_url: 'master'|replace: '//cdn.shopify.com', 'https://easylover.imgix.net'}}&auto=format,compress&w=600" media="(max-width: 600px)">
+  <source srcset="{{image.src|img_url: 'master'|replace: '//cdn.shopify.com', 'https://easylover.imgix.net'}}&auto=format,compress&w=900" media="(max-width: 900px)">
+  <source srcset="{{image.src|img_url: 'master'|replace: '//cdn.shopify.com', 'https://easylover.imgix.net'}}&auto=format,compress&w=1200" media="(max-width: 1200px)">
+  <img src="{{image.src|img_url: 'master'|replace: '//cdn.shopify.com', 'https://easylover.imgix.net'}}&auto=format,compress&w=1400" alt="{{image.alt}}">
 </picture>

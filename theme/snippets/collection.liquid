@@ -3,17 +3,19 @@
 <section class="big_bottom">
   <div class="grid grid--thick_guttered grid--center grid--middle">
   	<div class="col col--3of12 col--tablet_portrait--4of12 col--phone--9of12">
-		<div class="box box--tight">
 			<img src="{{collection.image.src|img_url: 'original'}}" alt="{{collection.image.alt}}" class="img--half">
 			<div class="text_center">{{collection.description}}</div>
-		</div>
-	</div>
+  	</div>
     
     {% for product in collection.products %}
     <div class="col col--3of12 col--tablet_portrait--4of12 col--phone--6of12">
       <a href="{{product.url | within: collection }}" class="product{% unless product.available  %} product--soldout{% endunless %}">
         {% unless product.available  %}<div class="button button--circle">Sold Out</div>{% endunless %}
-        <img src="{{product.featured_image.src|img_url: 'original'}}" alt="{{product.featured_image.alt}}">
+        <div class="product__images">
+          {% for image in product.images limit: 2 %}
+          {% include 'picture', image: image %}
+          {% endfor %}
+        </div>
         <p class="text_center p--small">{{product.title}}</p>
       </a>
     </div>

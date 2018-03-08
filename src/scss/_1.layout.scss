@@ -23,6 +23,11 @@ body {
 	min-height: 100vh;
 }
 
+.noscroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 
 // #HEADER
 

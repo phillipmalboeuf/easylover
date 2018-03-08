@@ -69,9 +69,10 @@ class Lover.Views.Product extends Backbone.View
 		e.preventDefault()
 		e.stopImmediatePropagation()
 
-		data["properties[Name]"] = e.currentTarget["name"].value
-		data["properties[Style]"] = e.currentTarget["style"].value
-		data["properties[Position]"] = e.currentTarget["position"].value
+		if e.currentTarget["name"]
+			data["properties[Name]"] = e.currentTarget["name"].value
+			data["properties[Style]"] = e.currentTarget["style"].value
+			data["properties[Position]"] = e.currentTarget["position"].value
 
 		Lover.cart.add this.$el.find("[name='size']").val(), 1, data
 		Lover.cart_view.show()
