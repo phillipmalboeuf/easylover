@@ -119,6 +119,7 @@
 
 			@media #{$tablet_portrait} {
 				max-height: none;
+				overflow: visible;
 			}
 		}
 	}
