@@ -16,7 +16,23 @@
   <nav class="grid grid--middle" data-navigation>
     <div class="col col--4of12 hide_on_tablet_portrait">
       {% for link in linklists['shop-menu'].links %}
+      {% if link.url == '/collections' %}
+
+      <span class="show_overlay_on_hover nav__link">
+        <a href="{{ link.url }}" class="nav__link{% if link.active %} nav__link--active{% endif %}">{{link.title}} {% include 'icon-triangle' %}</a>
+
+        <div class="overlay overlay--top_left">
+          <div class="overlay__container">
+            {% for collection_link in linklists['collections-menu'].links %}
+            <a href="{{ collection_link.url }}" class="nav__link nav__link--thick{% if collection_link.active %} nav__link--active{% endif %}">{{collection_link.title}}</a><br>
+            {% endfor %}
+          </div>
+        </div>
+      </span>
+
+      {% else %}
       <a href="{{ link.url }}" class="nav__link{% if link.active %} nav__link--active{% endif %}">{{link.title}}</a>
+      {% endif %}
       {% endfor %}
     </div>
 
@@ -30,10 +46,7 @@
 
     <div class="col col--4of12 text_center">
       <a href="/">
-        <picture class="header__logotype">
-          <source srcset="{{'favicon.png'| asset_url }}" media="(max-width: 600px)">
-          <img src="{{'easylover-logo.gif'| asset_url }}" alt="Easy Lover Club">
-        </picture>
+        {% include 'icon-logo' %}
       </a>
     </div>
 

@@ -55,7 +55,7 @@
 			<br><br><br><br><br><br><br>
 			{% endif %}
 
-			<form class="{% if product.type != 'Custom' %}product__form padded{% endif %}" data-add-to-cart-form>
+			{% if product.available %}<form class="{% if product.type != 'Custom' %}product__form padded{% endif %}" data-add-to-cart-form>{% else %}<div class="product__form padded">{% endif %}
 				{% if product.type == 'Custom' %}
 
 				<fieldset id="name_fieldset" data-turbolinks-permanent>
@@ -112,7 +112,7 @@
 					</select>
 				</fieldset>
 
-				{% else %}
+				{% elsif product.available %}
 
 				<fieldset>
 
@@ -152,8 +152,19 @@
 
 				{% endif %}
 
-				<button class="button--black button--full normal_top" type="submit" {% unless product.available  %}disabled{% endunless %}>{% if product.available  %}Add to cart{% else %}Out of Stock{% endif %}</button>
-			</form>
+				{% if product.available %}
+				<button class="button--black button--full normal_top" type="submit">Add to cart</button>
+				{% else %}
+				<form action="https://club.us15.list-manage.com/subscribe/post?u=83beb197c95f99eace651cef8&amp;id=a4086ebd5d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+					<label for="mce-EMAIL">Notify me when available:</label>
+					<input type="email" value="" placeholder="easy.lover@gmail.com" name="EMAIL" class="required email" id="mce-EMAIL">
+					<input type="hidden" value="{{product.title|replace:'"', ''}}" name="PRODUCT" id="mce-PRODUCT">
+
+				  <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_83beb197c95f99eace651cef8_a4086ebd5d" tabindex="-1" value=""></div>
+				  <button type="submit" class="button--black button--tight normal_top">Send Request</button>
+				</form>
+				{% endif %}
+			{% if product.available %}</form>{% else %}</div>{% endif %}
 		</div>
 	</div>	
 </article>

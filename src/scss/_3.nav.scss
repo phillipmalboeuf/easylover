@@ -11,7 +11,7 @@ nav {
 }
 
 	.nav__link {
-		font-family: $alternate_font;
+		font-family: $headings_font;
 		font-weight: 500;
 		color: $grey;
 
@@ -31,6 +31,10 @@ nav {
 		&.nav__link--line {
 			display: block;
 			line-height: (24/$base);
+		}
+
+		&.nav__link--thick {
+			// line-height: 1.5;
 		}
 
 		&.nav__link--active {

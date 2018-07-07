@@ -64,8 +64,8 @@ button,
 	}
 
 	&.button--tight {
-		padding: $vertical_rythm/1.5 $vertical_rythm $vertical_rythm/2.333;
-		border: 4px solid transparent;
+		font-size: $base_size;
+		padding: $vertical_rythm $vertical_rythm*4;
 	}
 
 	&:hover,

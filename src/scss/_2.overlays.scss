@@ -16,6 +16,7 @@
 	@include transition(opacity $fast, visibility 0s linear $fast);
 
 
+	.show_overlay_on_hover:hover &,
 	&.overlay--show {
 		opacity: 1;
 		visibility: visible;
@@ -49,6 +50,18 @@
 			width: 100%;
 		}
 	}
+
+	&.overlay--top_left {
+		top: $gutter*2.8;
+		left: $gutter;
+
+		width: auto;
+		height: auto;
+
+		.overlay__container {
+			width: auto;
+		}
+	}
 }
 
 	.overlay__back {
@@ -72,7 +85,7 @@
 		max-height: 100vh;
 		overflow-y: auto;
 
-		// background: $white;
+		background: $white;
 
 		@include shadow(0 0.25rem 1rem fade-out($light_background, 0.8));
 	}

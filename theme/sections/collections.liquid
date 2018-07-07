@@ -2,7 +2,7 @@
 	{% for block in section.blocks %}
 	{% assign collection = collections[block.settings.collection] %}
 
-	{% include 'collection' %}
+	<div class="huge_bottom">{% include 'collection' %}</div>
 	{% endfor %}
 </div>
 
