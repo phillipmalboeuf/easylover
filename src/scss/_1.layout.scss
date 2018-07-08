@@ -15,7 +15,8 @@
 // #BODY
 
 html {
-	
+	padding: 0 !important;
+	overflow-x: hidden;
 }
 
 body {
@@ -39,13 +40,15 @@ header {
 // #MAIN
 
 .main {
-	position: relative;
-	max-width: $max_width;
-	margin: 0 auto;
+	padding-top: 3.8rem;
+	min-height: 80vh;
+	// position: relative;
+	// // max-width: $max_width;
+	// // margin: 0 auto;
 
-	@media #{$phone} {
-		// padding-top: 0;
-	}
+	// @media #{$phone} {
+	// 	// padding-top: 0;
+	// }
 }
 
 
@@ -69,7 +72,7 @@ footer {
 	padding: $gutter;
 
 	&.padded--tight {
-		padding: $gutter/2;
+		padding: $gutter/1.5;
 	}
 
 	&.padded--thick {
@@ -84,15 +87,15 @@ footer {
 		}
 	}
 
-	&.padded--underheader {
-		padding-top: $gutter*6;
+	&.padded--very_thick {
+		padding: $gutter*8 $gutter*3;
 
-		// @media #{$tablet_portrait} {
-		// 	padding-top: $gutter*6;
-		// }
+		@media #{$tablet_portrait} {
+			padding: $gutter*6 $gutter*2;
+		}
 
 		@media #{$phone} {
-			padding-top: $gutter*4;
+			padding: $gutter*2 $gutter;
 		}
 	}
 
@@ -118,16 +121,15 @@ footer {
 .bordered { border: 1px solid $grey--light; }
 .border_left { border-left: 1px solid $highlight; }
 .border_right { border-right: 1px solid $highlight; }
+.border_bottom { border-bottom: 1px solid $black; }
 
 .relative { position: relative; }
+.ztop { z-index: 2; }
 .hide { display: none !important; }
 .invisible { visibility: hidden; }
 .inline_block { display: inline-block; }
 .text_center { text-align: center; }
 .text_right { text-align: right; }
 .text_left { text-align: left; }
-
-
-
 
 

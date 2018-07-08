@@ -4,36 +4,14 @@
 {% assign id = section.id %}
 {% assign collection = collections[section.settings.collection] %}
 
-<section class="padded padded--thick padded--underheader" data-section-id="{{ section.id }}" data-section-type="featured-collection">
-  <h1 class="text_center big_bottom h1--giant hide_on_phone">{{section.settings.title}}</h1>
-
-  <div class="grid grid--thick_guttered grid--center">
-    {% for product in collection.products %}
-    <div class="col col--6of12 col--phone--12of12">
-      <a href="{{product.url | within: collection }}" class="product{% unless product.available  %} product--soldout{% endunless %}">
-        {% unless product.available  %}<div class="button button--circle">Sold Out</div>{% endunless %}
-        <img class="medium_bottom" src="{{product.featured_image.src|img_url: 'original'}}" alt="{{product.featured_image.alt}}">
-
-        <div class="grid grid--spaced">
-          <div class="col col--8of12">
-            <strong>{{product.title}}</strong><br>
-            {{product.type|capitalize}}
-          </div>
-          <div class="col">
-            {{product.price|divided_by:100}} CAD
-          </div>
-        </div>
-      </a>
-    </div>
-    {% endfor %}
-  </div>
+<section data-section-id="{{ section.id }}" data-section-type="featured-collection">
+  {% include 'collection', title: section.settings.title %}
 </section>
 
 
 {% schema %}
 {
   "name": "Featured Collection",
-  "class": "col col--6of12 col--tablet_portrait--10of12 col--phone--12of12",
   "settings": [
     {
       "id": "title",

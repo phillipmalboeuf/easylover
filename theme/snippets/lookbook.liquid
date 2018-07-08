@@ -1,0 +1,7 @@
+<div class="slider" data-slider>
+  {% for article in blog.articles %}
+  <div class="slide">
+    {% include 'picture', image: article.image %}
+  </div>
+  {% endfor %}
+</div>

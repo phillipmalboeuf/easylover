@@ -4,24 +4,16 @@
 {% assign id = section.id %}
 {% assign blog = blogs[section.settings.lookbook] %}
 
-<section class="padded padded--underheader" data-section-id="{{ section.id }}" data-section-type="featured-lookbook">
-  <h1 class="text_center big_bottom h1--giant h1--outline">{{section.settings.title}}</h1>
 
-  {% for article in blog.articles %}
-  <div class="medium_bottom">
-    {% include 'picture', image: article.image %}
-  </div>
-  {% endfor %}
-
-  <h2 class="h2--small">{{section.settings.subtitle}}</h2>
-  <div class="big_bottom">{{section.settings.description}}</div>
+<section class="padded highlight_back" data-section-id="{{ section.id }}" data-section-type="featured-lookbook">
+  {% include 'lookbook' %}
 </section>
+
 
 
 {% schema %}
 {
   "name": "Featured Lookbook",
-  "class": "col col--6of12 col--tablet_portrait--10of12 col--phone--12of12",
   "settings": [
     {
       "id": "title",

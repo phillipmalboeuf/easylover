@@ -111,18 +111,18 @@
 		}
 	}
 
-	&.grid--max_height {
+	// &.grid--max_height {
 		
-		> .col {
-			max-height: 100vh;
-			overflow: auto;
+	// 	> .col {
+	// 		max-height: 100vh;
+	// 		overflow: auto;
 
-			@media #{$tablet_portrait} {
-				max-height: none;
-				overflow: visible;
-			}
-		}
-	}
+	// 		@media #{$tablet_portrait} {
+	// 			max-height: none;
+	// 			overflow: visible;
+	// 		}
+	// 	}
+	// }
 
 	&.grid--guttered {
 		margin-left: -$gutter;
@@ -145,7 +145,7 @@
 }
 	
 	.col {
-
+		
 		.grid--guttered > & {
 			padding-left: $gutter;
 			padding-bottom: $gutter;
@@ -160,7 +160,6 @@
 			padding-left: $gutter*2;
 			padding-bottom: $gutter*2;
 		}
-
 
 		@for $i from 1 through $number_of_columns { 
 			&.col--#{$i}of#{$number_of_columns} { width: (100% / $number_of_columns * $i); }

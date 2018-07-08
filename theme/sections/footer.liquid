@@ -1,30 +1,15 @@
 
 <footer class="footer" data-section-id="{{ section.id }}" data-section-type="footer-section">
-  {% comment %}{% unless template == 'blog' %}
-	{% assign blog = blogs[section.settings.inspiration_blog] %}
-	<div class="grid grid--tight_guttered grid--bottom">
-		{% for article in blog.articles limit:1 %}
-		<div class="col col--1of12 col--tablet_portrait--2of12 col--phone--3of12">
-			<a href="{{blog.url}}"><img src="{{article.image.src|img_url: 'grande'}}" alt=""></a>
-		</div>
-		<div class="col col--1of12 col--tablet_portrait--2of12">
-			<a href="{{blog.url}}"><em>Inspiration lookbook</em></a>
-		</div>
-		{% endfor %}
-	</div>
-  {% endunless %}{% endcomment %}
-
-  {% unless template == 'product' or template == 'list-collections' or template == 'blog' %}
-  {% comment %}<div class="footer__products">
-    {% for link in linklists[section.settings.footer_products].links %}
-    <a href="{{link.url}}" class="button button--circle hide_on_tablet_landscape">{{link.title}}</a>
-    {% endfor %}
-  </div>{% endcomment %}
-
-  {% comment %}<div class="footer__shirt hide_on_tablet_landscape">
-    <img src="{{'sweatshirt.svg'|asset_url}}">
-  </div>{% endcomment %}
-  {% endunless %}
+  <div class="grid grid--spaced">
+    <div>
+      © Easy Lover Club 2018
+    </div>
+    <div class="col col--tablet_portrait--12of12">
+      {% for link in linklists["footer"].links %}
+      <a href="{{ link.url }}" class="nav__link">{{link.title}}</a>
+      {% endfor %}
+    </div>
+  </div>
 </footer>
 
 
@@ -33,21 +18,10 @@
 {
   "name": "Footer",
   "settings": [
-  	{
-      "type": "blog",
-      "id": "inspiration_blog",
-      "label": "Inspiration blog"
-    },
     {
       "type": "link_list",
       "id": "footer_links",
       "label": "Footer links",
-      "default": "footer"
-    },
-    {
-      "type": "link_list",
-      "id": "footer_products",
-      "label": "Footer product links",
       "default": "footer"
     }
   ]

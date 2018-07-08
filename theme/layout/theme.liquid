@@ -18,12 +18,10 @@
 
 
   {% include 'meta' %}
-  
-  <link rel="canonical" href="{{ canonical_url }}">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-  <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono:400,700">
 
   {{ 'all.css' | asset_url | stylesheet_tag }}
 
@@ -33,9 +31,8 @@
 </head>
 
 
-<body id="{{ page_title | handle }}" class="{% if customer %}logged_in {% endif %}">
+<body id="{{ page_title | handle }}" class="{% if customer %}logged_in{% endif %}">
 
-  {% include 'icons' %}
   {% section 'header' %}
 
   <div class="main" role="main">
@@ -47,8 +44,8 @@
   {% section 'footer' %}
   {% section 'newsletter_popup' %}
 
-  
   <script src="//cdn.jsdelivr.net/g/jquery@3.1.0,underscorejs@1.8.3,backbonejs@1.3.3,handlebarsjs@4.0.5(handlebars.runtime.js),velocity@1.2.3" data-turbolinks-eval="false"></script>
+  <script src="//unpkg.com/flickity@2/dist/flickity.pkgd.min.js" data-turbolinks-eval="false"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.min.js" async data-turbolinks-eval="false"></script>
 
   <!-- {% include 'currencies' %} -->

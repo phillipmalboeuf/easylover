@@ -8,25 +8,20 @@
 	left: 0;
 	width: 100%;
 	z-index: 10;
+	padding: $gutter/1.5 $gutter*2;
 
-	// background-color: $white;
-	// box-shadow: 0 2px 20px 0 fade-out($grey--light, 0.5);
-	pointer-events: none;
-
-	a {
-		pointer-events: auto;
+	@media #{$tablet_portrait} {
+		padding: $gutter/1.5 $gutter;
 	}
+
+	background-color: $white;
+	box-shadow: 0 2px 20px 0 fade-out($grey, 0.5);
+	// pointer-events: none;
+
+	// a {
+	// 	pointer-events: auto;
+	// }
 }
-
-	.header__logotype {
-		margin: 0 auto;
-		width: 100%;
-		max-width: (266/$base) * 1rem;
-
-		@media #{$phone} {
-			max-width: (42/$base) * 1rem;	
-		}
-	}
 
 	.header__alert {
 		position: fixed;

@@ -346,66 +346,20 @@
       return Slider.__super__.constructor.apply(this, arguments);
     }
 
-    Slider.prototype.current_slide = 0;
-
-    Slider.prototype.events = {
-      "click [data-next-slide-button]": "next_slide",
-      "click [data-previous-slide-button]": "previous_slide",
-      "click [data-slide-marker]": "slide_to"
-    };
+    Slider.prototype.events = {};
 
     Slider.prototype.initialize = function() {
-      this.slides_count = this.$el.find("[data-slide]").length;
       return this.render();
     };
 
     Slider.prototype.render = function() {
-      this.$el.find("[data-slide=" + this.current_slide + "]").css("opacity", 1);
-      this.reset_autoplay();
+      this.$el.flickity({
+        imagesLoaded: true,
+        wrapAround: true,
+        prevNextButtons: false,
+        percentPosition: false
+      });
       return this;
-    };
-
-    Slider.prototype.next_slide = function(e) {
-      if (this.current_slide === this.slides_count - 1) {
-        return this.slide_to(e, 0);
-      } else {
-        return this.slide_to(e, this.current_slide + 1);
-      }
-    };
-
-    Slider.prototype.previous_slide = function(e) {
-      if (this.current_slide === 0) {
-        return this.slide_to(e, this.slides_count - 1);
-      } else {
-        return this.slide_to(e, this.current_slide - 1);
-      }
-    };
-
-    Slider.prototype.slide_to = function(e, index) {
-      if (e != null) {
-        e.preventDefault();
-        e.currentTarget.blur();
-        this.reset_autoplay();
-      }
-      this.current_slide = index;
-      this.$el.find("[data-slide-marker]").removeClass("slider__marker--active");
-      this.$el.find("[data-slide-marker=" + this.current_slide + "]").addClass("slider__marker--active");
-      this.$el.find("[data-slide]").css("opacity", 0.3);
-      this.$el.find("[data-slide]").css("transform", "translateX(-" + this.current_slide + "00%)");
-      return this.$el.find("[data-slide=" + this.current_slide + "]").css("opacity", 1);
-    };
-
-    Slider.prototype.reset_autoplay = function() {
-      if (this.el.hasAttribute("data-slider-autoplay")) {
-        if (this.interval != null) {
-          window.clearInterval(this.interval);
-        }
-        return this.interval = window.setInterval((function(_this) {
-          return function() {
-            return _this.next_slide();
-          };
-        })(this), this.$el.attr("data-slider-autoplay"));
-      }
     };
 
     return Slider;

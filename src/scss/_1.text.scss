@@ -65,7 +65,12 @@ h1, h2, h3, h4, h5, h6 {
 
 		&.h1--massive {
 			font-size: $massive_size;
+			font-family: $alternate_font;
 			font-weight: 800;
+
+			@media #{$tablet_portrait} {
+				font-size: $huge_size;
+			}
 		}
 
 		&.h1--giant {
@@ -81,7 +86,11 @@ h1, h2, h3, h4, h5, h6 {
 
 	h2 {
 		font-size: $big_size;
-		line-height: 1.2;
+		font-family: $alternate_font;
+
+		&.h2--huge {
+			font-size: $huge_size;
+		}
 
 		&.h2--small {
 			font-size: $base_size;
@@ -96,13 +105,11 @@ h1, h2, h3, h4, h5, h6 {
 	h4 {
 		font-size: $medium_size;
 		font-family: $body_font;
-		color: $body_color;
 	}
 	
 	h5 {
 		font-size: $slight_size;
 		font-weight: normal;
-		color: $body_color;
 	}
 
 	h6 {
@@ -183,7 +190,7 @@ a {
 	&:focus,
 	&:hover,
 	&.a--focus {
-		color: $dark_background;
+		color: $highlight;
 
 		.a__hide {
 			opacity: 1;
@@ -214,7 +221,7 @@ a {
 // #LISTS 
 ol,
 ul {
-	font-family: $alternate_font;
+	// font-family: $alternate_font;
 	font-size: $small_size;
 
 	color: $body_color;
@@ -237,20 +244,7 @@ ul {
 }
 
 ol {
-	position: relative;
-	list-style: none;
-	counter-reset: numberedlist;
 
-	li {
-
-		&:before {
-			counter-increment: numberedlist;
-			content: counter(numberedlist) ". ";
-
-			position: absolute;
-			left: $gutter/2;
-		}
-	}
 }
 
 
@@ -356,33 +350,37 @@ sub {
 .white { color: $white; }
 .highlight { color: $highlight !important; }
 .red { color: $red; }
-.blue { color: $blue; }
+.blue { color: $blue--light; }
 .dark { color: $dark_background; }
 
 
 // #BACKGROUNDS
 
 .dark_back,
-.black_back {
+.black_back,
+.highlight_back {
 	color: $white;
 	background-color: $dark_background;
 
-	h1, h2, h3, h4, h5, h6 {
-		color: $highlight;
-	}
+	// h1, h2, h3, h4, h5, h6 {
+	// 	color: $highlight;
+	// }
 
 	a {
 		
-		
 		&:hover,
 		&:focus {
-			color: $white;
+			color: $blue--light;
 		}
 	}
 }
 
 .black_back {
 	background-color: $black;
+}
+
+.highlight_back {
+	background-color: $highlight;
 }
 
 .white_back {

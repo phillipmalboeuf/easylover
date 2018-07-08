@@ -1,10 +1,9 @@
-<div class="padded padded--underheader huge_bottom">
+<section>
 	{% for block in section.blocks %}
 	{% assign collection = collections[block.settings.collection] %}
-
-	<div class="huge_bottom">{% include 'collection' %}</div>
+	{% include 'collection' %}
 	{% endfor %}
-</div>
+</section>
 
 
 {% schema %}

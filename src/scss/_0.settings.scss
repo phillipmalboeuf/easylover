@@ -3,22 +3,22 @@
 // #COLORS
 
 $white: #fff;
-$black: #111111;
+$black: #000000;
 $black--light: #595959;
 $blue: #2B2C7A;
-$blue--light: #E3F5FF;
+$blue--light: #82B2DB;
 $grey: #999999;
 $grey--light: #F2F2F2;
-$red: #DB2A12;
+$red: #CB2B2B;
 $pink: #FFA7A7;
-$yellow: #F2CB40;
+$yellow: #F1BB57;
 
 $body_color: $black;
 $headings_color: inherit;
-$highlight: $pink;
+$highlight: $yellow;
 $light_background: $blue--light;
 $dark_background: $black;
-$alert_color: $pink;
+$alert_color: $red;
 
 
 // #FONTS
@@ -33,8 +33,8 @@ $alternate_font: "Space Mono", monospace;
 $base: 18;
 $base_size: $base * 1px;
 $giant_size: (176/$base) * 1rem;
-$massive_size: (66/$base) * 1rem;
-$huge_size: (42/$base) * 1rem;
+$massive_size: (86/$base) * 1rem;
+$huge_size: (48/$base) * 1rem;
 $big_size: (28/$base) * 1rem;
 $medium_size: (24/$base) * 1rem;
 $slight_size: (22/$base) * 1rem;
@@ -45,7 +45,7 @@ $vertical_rythm: 1rem;
 $line_height: 1.333;
 $max_width: 1400px;
 $letter_spacing: 0;
-$border_radius: 3px;
+$border_radius: 0;
 
 $number_of_columns: 12;
 $gutter: (24/$base) * 1rem;

@@ -1,3 +1,5 @@
-<div class="padded padded--underheader huge_bottom">
-	{% include 'collection' %}
+<div class="padded padded--very_thick border_bottom text_center">
+	<h1 class="h1--massive">{{collection.title}}</h1>
+	{% if collection.description %}{{collection.description}}{% endif %}
 </div>
+{% include 'collection' %}

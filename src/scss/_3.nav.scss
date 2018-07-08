@@ -3,17 +3,13 @@
 // #NAV
 
 nav {
-	padding: $gutter*1.66 $gutter $gutter/2;
-
-	@media #{$phone} {
-		padding: $gutter/2;
-	}
+	
 }
 
 	.nav__link {
 		font-family: $headings_font;
-		font-weight: 500;
-		color: $grey;
+		font-weight: 400;
+		color: $black;
 
 		& + & {
 			margin-left: $vertical_rythm;
@@ -23,23 +19,19 @@ nav {
 			}
 		}
 
-		&:hover,
-		&:focus {
-			border-bottom: 2px solid;
-		}
-
 		&.nav__link--line {
 			display: block;
 			line-height: (24/$base);
 		}
 
-		&.nav__link--thick {
-			// line-height: 1.5;
-		}
-
 		&.nav__link--active {
 			color: $black;
 		}
+	}
+
+	a.nav__link:hover,
+	a.nav__link:focus {
+		border-bottom: 2px solid;
 	}
 
 

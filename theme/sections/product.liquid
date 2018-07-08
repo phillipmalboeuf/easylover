@@ -18,12 +18,10 @@
   <meta itemprop="image" content="{{ product.featured_image | img_url: 'original' }}">
   <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
 	
-	<div class="grid grid--max_height grid--center" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+	<div class="grid grid--center" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 		<meta itemprop="priceCurrency" content="{{ shop.currency }}">
     <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
-		<div class="col col--6of12 col--tablet_portrait--10of12 col--phone--12of12 padded padded--underheader">
-			<h1 class="text_center big_bottom h1--giant hide_on_tablet_portrait">Shirt</h1>
-
+		<div class="col col--6of12 col--tablet_portrait--10of12 col--phone--12of12 padded padded--thick">
 			{% if product.type == 'Custom' %}
 			<div class="relative">
 				{% if current_variant.image != blank %}
@@ -40,10 +38,9 @@
 			{% endif %}
 		</div>
 
-		<div class="col col--6of12 col--tablet_portrait--10of12 col--phone--12of12 padded padded--underheader">
-			<h1 class="text_center big_bottom h1--giant h1--outline hide_on_tablet_portrait">Info</h1>
-
-			<h2 class="tiny_bottom">{{product.title}}<br><strong>{{current_variant.price|divided_by:100}} CAD</strong></h2>
+		<div class="col col--6of12 col--tablet_portrait--10of12 col--phone--12of12 padded padded--thick">
+			<h1 class="tiny_bottom">{{product.title}}</h1>
+			<h4 class="medium_bottom">{% include 'price' %}</h4>
 
 			{% if product.description != "" %}
 			{{product.description}}
@@ -51,11 +48,8 @@
 			<p>Bonjour, welcome to the shop. I’ve been working on these ideas for the past years: some bad, some good. Feel free to browse. You touch, you buy. 100% cotton.</p>
 			{% endif %}
 			
-			{% if product.type != 'Custom' %}
-			<br><br><br><br><br><br><br>
-			{% endif %}
 
-			{% if product.available %}<form class="{% if product.type != 'Custom' %}product__form padded{% endif %}" data-add-to-cart-form>{% else %}<div class="product__form padded">{% endif %}
+			{% if product.available %}<form class="{% if product.type != 'Custom' %}product__form{% endif %}" data-add-to-cart-form>{% else %}<div class="product__form">{% endif %}
 				{% if product.type == 'Custom' %}
 
 				<fieldset id="name_fieldset" data-turbolinks-permanent>
