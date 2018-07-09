@@ -11,7 +11,7 @@
 {% endif %}
 
 
-<article class="product product--{{current_variant_colour|handleize}} {% if product.type == 'Custom' %}product--custom{% endif %}" itemscope itemtype="http://schema.org/Product" data-section-id='{{section.id}}' data-section-type='product' data-product-id="{{product.id}}">
+<article class="product product--{{current_variant_colour|handleize}} {% if product.type == 'Custom' %}product--custom{% endif %} border_bottom" itemscope itemtype="http://schema.org/Product" data-section-id='{{section.id}}' data-section-type='product' data-product-id="{{product.id}}">
 	<meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
   <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
   <meta itemprop="brand" content="{{ product.vendor }}">
@@ -49,7 +49,7 @@
 			{% endif %}
 			
 
-			{% if product.available %}<form class="{% if product.type != 'Custom' %}product__form{% endif %}" data-add-to-cart-form>{% else %}<div class="product__form">{% endif %}
+			<form class="{% if product.type != 'Custom' %}product__form{% endif %}" data-add-to-cart-form>
 				{% if product.type == 'Custom' %}
 
 				<fieldset id="name_fieldset" data-turbolinks-permanent>
@@ -149,17 +149,37 @@
 				{% if product.available %}
 				<button class="button--black button--full normal_top" type="submit">Add to cart</button>
 				{% else %}
-				<form action="https://club.us15.list-manage.com/subscribe/post?u=83beb197c95f99eace651cef8&amp;id=a4086ebd5d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+				<label class="normal_top">Notify me when available:</label>
+				<a href="https://launch.easylover.club/squeeze-page21569744" class="button button--black button--full" target="_blank">Join waitlist</a>
+				{% comment %} <form action="https://club.us15.list-manage.com/subscribe/post?u=83beb197c95f99eace651cef8&amp;id=a4086ebd5d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
 					<label for="mce-EMAIL">Notify me when available:</label>
 					<input type="email" value="" placeholder="easy.lover@gmail.com" name="EMAIL" class="required email" id="mce-EMAIL">
 					<input type="hidden" value="{{product.title|replace:'"', ''}}" name="PRODUCT" id="mce-PRODUCT">
 
 				  <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_83beb197c95f99eace651cef8_a4086ebd5d" tabindex="-1" value=""></div>
 				  <button type="submit" class="button--black button--tight normal_top">Send Request</button>
-				</form>
+				</form> {% endcomment %}
 				{% endif %}
-			{% if product.available %}</form>{% else %}</div>{% endif %}
+			</form>
 		</div>
-	</div>	
+	</div>
+
+
+	{% assign related_products = false %}
+	{% for tag in product.tags %}
+	{% if all_products[tag] != blank %}{% assign related_products = true %}{% endif %}
+	{% endfor %}
+
+	{% if related_products %}
+	<div class="padded padded--thick text_center border_bottom"><h2 class="h2--huge">You might be interested in</h2></div>
+
+	<div class="grid grid--stretch grid--center">
+	{% for tag in product.tags %}
+	{% if all_products[tag] != blank %}
+	{% include 'collection_product', product: all_products[tag] %}
+	{% endif %}
+	{% endfor %}
+	</div>
+	{% endif %}
 </article>
 
