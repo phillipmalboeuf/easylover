@@ -1,9 +1,11 @@
 <section>
 	{% for block in section.blocks %}
-  <div class="padded padded--thick text_center"><h2>{{block.settings.title}}</h2></div>
-	{% assign blog = blogs[block.settings.blog] %}
-	{% include 'lookbook' %}
-	{% endfor %}
+  <div class="padded padded--thick text_center">
+    <h2 class="">{{block.settings.title}}</h2>
+    {% assign blog = blogs[block.settings.blog] %}
+    {% include 'lookbook' %}
+    {% endfor %}
+  </div>
 </section>
 
 

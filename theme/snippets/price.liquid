@@ -2,5 +2,5 @@
 <span class="highlight">{{product.price|divided_by:100}} CAD</span>
 <span class="strike">{{product.compare_at_price|divided_by:100}} CAD</span>
 {% else %}
-{{current_variant.price|divided_by:100}} CAD
+{{product.price|divided_by:100}} CAD
 {% endif %}

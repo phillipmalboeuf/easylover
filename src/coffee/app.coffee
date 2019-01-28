@@ -37,8 +37,23 @@ window.Lover =
 		document.addEventListener "turbolinks:load", =>
 			this.render_views()
 
-		window.onpopstate = (e)->
-			Turbolinks.visit window.location.pathname+window.location.search, {action: "replace"}
+			ga('send', 'pageview') if ga?
+
+			if fbq?
+				fbq('track', 'PageView') 
+
+				$("[data-product-id]").each (index, element)=>
+					fbq("track", "ViewContent", {
+						content_ids: [element.getAttribute("data-product-id")],
+						content_type: "product_group",
+						content_name: $(element).find("[itemprop='name']").attr("content"),
+						content_category: $(element).find("[itemprop='type']").attr("content"),
+						currency: "CAD",
+						value: $(element).find("[itemprop='price']").attr("content")
+					})
+
+		# window.onpopstate = (e)->
+		# 	Turbolinks.visit window.location.pathname+window.location.search, {action: "replace"}
 
 
 

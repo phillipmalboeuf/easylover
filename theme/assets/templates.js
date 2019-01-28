@@ -33,7 +33,7 @@ this["templates"]["cart"] = Handlebars.template({"1":function(container,depth0,h
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.properties : depth0),{"name":"each","hash":{},"fn":container.program(6, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n					"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.variant_options : depth0),{"name":"each","hash":{},"fn":container.program(8, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n				</p>\n				\n			</div>\n			<div class=\"col col--3of12 text_center\">\n				QTY\n\n				<div class=\"padded\">\n					<button class=\"button--transparent\" data-decrement=\""
+    + "\n				</p>\n				\n			</div>\n			<div class=\"col col--3of12 text_center\">\n				QTY\n\n				<div class=\"padded padded--tight\">\n					<button class=\"button--transparent\" data-decrement=\""
     + alias4(((helper = (helper = helpers.key || (depth0 != null ? depth0.key : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"key","hash":{},"data":data}) : helper)))
     + "\" data-current-quantity=\""
     + alias4(((helper = (helper = helpers.quantity || (depth0 != null ? depth0.quantity : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"quantity","hash":{},"data":data}) : helper)))

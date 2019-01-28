@@ -100,6 +100,10 @@ h1, h2, h3, h4, h5, h6 {
 
 	h3 {
 		font-size: $medium_size;
+
+		&.h3--big {
+			font-size: $big_size;
+		}
 	}
 
 	h4 {
@@ -202,7 +206,7 @@ a {
 	}
 
 	&.a--highlight {
-		color: $highlight;
+		color: $green;
 
 		&:focus,
 		&:hover {

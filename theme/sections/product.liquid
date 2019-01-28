@@ -16,6 +16,7 @@
   <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
   <meta itemprop="brand" content="{{ product.vendor }}">
   <meta itemprop="image" content="{{ product.featured_image | img_url: 'original' }}">
+	<meta itemprop="type" content="{{ product.type }}">
   <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
 	
 	<div class="grid grid--center" itemprop="offers" itemscope itemtype="http://schema.org/Offer">

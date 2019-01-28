@@ -19,13 +19,17 @@ nav {
 			}
 		}
 
+		@media #{$phone} {
+			font-size: $slight_size;
+		}
+
 		&.nav__link--line {
 			display: block;
 			line-height: (24/$base);
 		}
 
 		&.nav__link--active {
-			color: $black;
+			border-bottom: 2px solid;
 		}
 	}
 
