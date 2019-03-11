@@ -2,9 +2,9 @@
 
 <h6>
 	{% if product.compare_at_price > product.price %}
-	<span class="highlight strike">{{product.price|divided_by:100}} CAD</span>
-	<span class="alert">{{product.price|divided_by:100}} CAD</span>
+	<span class="highlight strike">{{product.price|divided_by:100}} USD</span>
+	<span class="alert">{{product.price|divided_by:100}} USD</span>
 	{% else %}
-	<span class="highlight">{{product.price|divided_by:100}} CAD</span>
+	<span class="highlight">{{product.price|divided_by:100}} USD</span>
 	{% endif %}
 </h6>

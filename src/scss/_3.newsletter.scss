@@ -32,4 +32,8 @@
 			@extend .overlay__close;
 
 			padding: $gutter $gutter*2;
+
+			@media #{$phone} {
+				padding: $gutter/2;
+			}
 		}

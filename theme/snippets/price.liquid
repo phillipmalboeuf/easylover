@@ -1,6 +1,6 @@
 {% if product.compare_at_price > product.price %}
-<span class="highlight">{{product.price|divided_by:100}} CAD</span>
-<span class="strike">{{product.compare_at_price|divided_by:100}} CAD</span>
+<span class="highlight">{{product.price|divided_by:100}} USD</span>
+<span class="strike">{{product.compare_at_price|divided_by:100}} USD</span>
 {% else %}
-{{product.price|divided_by:100}} CAD
+{{product.price|divided_by:100}} USD
 {% endif %}

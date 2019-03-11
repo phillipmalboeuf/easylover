@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
 
-  var env_var = grunt.file.readJSON('variables/environment.json');
+  // var env_var = grunt.file.readJSON('variables/environment.json');
+  var env_var = grunt.file.readJSON('variables/us.json');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -10,8 +11,10 @@ module.exports = function(grunt) {
       options: {
         api_key: env_var.shopify.api_key,
         password: env_var.shopify.password,
-        url: "to-be-decided-f-ck.myshopify.com",
-        theme: "31979831394",
+        // url: "to-be-decided-f-ck.myshopify.com",
+        // theme: "31979831394",
+        url: "easy-lover-club.myshopify.com",
+        theme: "46751875151",
         base: "theme/",
         disable_growl_notifications: true
       }

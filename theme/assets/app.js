@@ -15,6 +15,7 @@
       // @search_view = new Lover.Views.Search()
       // @login_view = new Lover.Views.Login()
       this.newsletter_view = new Lover.Views.Newsletter();
+      this.country_view = new Lover.Views.CountrySelector();
       // $(window).on "keyup", (e)=>
       // 	if e.keyCode == 27
       // 		if $("body").hasClass "has_cart"
@@ -39,7 +40,7 @@
               content_type: "product_group",
               content_name: $(element).find("[itemprop='name']").attr("content"),
               content_category: $(element).find("[itemprop='type']").attr("content"),
-              currency: "CAD",
+              currency: "USD",
               value: $(element).find("[itemprop='price']").attr("content")
             });
           });
@@ -98,6 +99,13 @@
           }));
         }
       });
+      if (window.innerWidth <= 600) {
+        $("[data-product-images]").each((index, element) => {
+          return this.views.push(new Lover.Views.Slider({
+            el: element
+          }));
+        });
+      }
       $("[data-collection-id]").each((index, element) => {
         return this.views.push(new Lover.Views.Collection({
           el: element
@@ -185,7 +193,7 @@
 (function() {
   Handlebars.registerHelper('money', function(value) {
     if (value != null) {
-      return (parseFloat(value) / 100) + " CAD";
+      return (parseFloat(value) / 100) + " USD";
     } else {
       return null;
     }
@@ -543,6 +551,75 @@
     Collection.prototype.filters = [];
 
     return Collection;
+
+  }).call(this);
+
+}).call(this);
+
+(function() {
+  Lover.Views.CountrySelector = (function() {
+    class CountrySelector extends Backbone.View {
+      initialize() {
+        return this.render();
+      }
+
+      render() {
+        var country;
+        if (Lover.cookies.get("countries_hidden") == null) {
+          country = this.$el.attr("data-country");
+          $.ajax("https://bombombaby.com/ipcheck", {
+            method: "GET",
+            dataType: "json",
+            success: (response) => {
+              console.log(response);
+              if (country === 'CA' && response.coutry_code !== 'CA') {
+                return this.show();
+              } else {
+                if (response.coutry_code === 'CA') {
+                  return this.show();
+                }
+              }
+            }
+          });
+        }
+        return this;
+      }
+
+      toggle(e) {
+        if (this.$el.hasClass("newsletter--show")) {
+          return this.hide(e);
+        } else {
+          return this.show(e);
+        }
+      }
+
+      show(e) {
+        if (e != null) {
+          e.preventDefault();
+        }
+        return this.$el.addClass("newsletter--show");
+      }
+
+      // this.$el.find("[type='email']").focus()
+      hide(e) {
+        if (e != null) {
+          e.preventDefault();
+        }
+        this.$el.removeClass("newsletter--show");
+        return Lover.cookies.set("countries_hidden", true);
+      }
+
+    };
+
+    CountrySelector.prototype.el = $("#countries");
+
+    CountrySelector.prototype.data = {};
+
+    CountrySelector.prototype.events = {
+      "click [data-hide]": "hide"
+    };
+
+    return CountrySelector;
 
   }).call(this);
 

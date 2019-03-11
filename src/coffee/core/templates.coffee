@@ -1,5 +1,5 @@
 Handlebars.registerHelper 'money', (value)->
-	if value? then (parseFloat(value)/100)+" CAD" else null
+	if value? then (parseFloat(value)/100)+" USD" else null
 
 Handlebars.registerHelper 'thumbnail', (image)->
 	image.replace(/(\.[^.]*)$/, "_medium$1").replace('http:', '')

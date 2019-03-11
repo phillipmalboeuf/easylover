@@ -17,6 +17,7 @@ window.Lover =
 		# @search_view = new Lover.Views.Search()
 		# @login_view = new Lover.Views.Login()
 		@newsletter_view = new Lover.Views.Newsletter()
+		@country_view = new Lover.Views.CountrySelector()
 
 
 		# $(window).on "keyup", (e)=>
@@ -25,7 +26,6 @@ window.Lover =
 		# 			@cart_view.hide()
 		# 		else
 		# 			@search_view.toggle()
-
 
 
 		# @login_view = new Lover.Views.Login()
@@ -48,7 +48,7 @@ window.Lover =
 						content_type: "product_group",
 						content_name: $(element).find("[itemprop='name']").attr("content"),
 						content_category: $(element).find("[itemprop='type']").attr("content"),
-						currency: "CAD",
+						currency: "USD",
 						value: $(element).find("[itemprop='price']").attr("content")
 					})
 
@@ -122,6 +122,9 @@ window.Lover =
 		# @login_views = []
 		# $(".js-login").each (index, el)=>
 		# 	@login_views.push new Lover.Views.Login({el: $(el)})
+
+
+		
 
 
 
