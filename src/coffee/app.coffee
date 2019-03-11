@@ -106,6 +106,12 @@ window.Lover =
 					el: element
 				})
 
+		if window.innerWidth <= 600
+			$("[data-product-images]").each (index, element)=>
+				@views.push new Lover.Views.Slider({
+					el: element
+				})
+
 		$("[data-collection-id]").each (index, element)=>
 			@views.push new Lover.Views.Collection({
 				el: element
