@@ -21,11 +21,12 @@ class Lover.Views.CountrySelector extends Backbone.View
 				method: "GET"
 				dataType: "json"
 				success: (response)=>
+					console.log(country)
 					console.log(response)
-					if country == 'CA' && response.coutry_code != 'CA'
+					if country == 'CA' && response.country_code != 'CA'
 						this.show()
 					else
-						if response.coutry_code == 'CA'
+						if country == 'US' && response.country_code == 'CA'
 							this.show()
 
 		this
