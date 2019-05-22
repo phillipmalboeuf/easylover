@@ -1,0 +1,19 @@
+
+
+// #TABLES
+
+table {
+  margin: $vertical_rythm 0;
+}
+  tr {
+    border-bottom: 1px solid $grey;
+  }
+    
+    td {
+      padding: $vertical_rythm/6 $vertical_rythm;
+      text-align: center;
+
+      &:first-child {
+        text-align: left;
+      }
+    }
